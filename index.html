@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propuesta Interactiva: 2do Foro Nacional de la Bicicleta 2025</title>
+    <title>Foro Nacional de la Bicicleta 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Foro Bicicleta (Primary Deep Blue-Green: #004D40, Secondary Blue-Green: #00838F, Light Blue-Green: #80CBC4, Accent Orange: #FF9800, Very Light Green Background: #E0F2F1, Dark Text: #212121) -->
-    <!-- Application Structure Plan: The SPA is designed as a narrative-driven interactive pitch deck. It flows from a high-level vision to a concrete action plan and a tailored call to action. The structure is thematic: 1. Hero (Immediate Hook), 2. The Vision (Core Ideas), 3. The Opportunity (Context & Urgency, with an interactive timeline), 4. The Action Plan (Featuring the tangible 'Avenida España' project and an interactive impact chart), 5. The Team (Building Credibility), 6. Organizations (Highlighting key partners), 7. The Collaboration (A dual-tabbed call-to-action for companies and politicians). This structure was chosen to guide the user through a compelling story of need, opportunity, and solution, making it more persuasive than a simple report summary. -->
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Custom Brand Softened V3 (Primary Accent Pink: #E567C7, Secondary Accent Green: #4CAF50, Primary Text/Bold Softer Dark Blue: #4A45B0, Call-to-Action Softer Yellow: #FFEA80, Background Base: #F7F7F7, Dark Contrast: #212121) -->
+    <!-- Application Structure Plan: The SPA is designed as a narrative-driven interactive pitch deck. It flows from a high-level vision to a concrete action plan and a tailored call to action. The structure is thematic: 1. Hero (Immediate Hook with structural background lines), 2. The Vision (Core Ideas), 3. The Opportunity (Context & Urgency, with an interactive timeline), 4. The Action Plan (Featuring the tangible 'Avenida España' project and an interactive impact chart), 5. The Team (Building Credibility), 6. Organizations (Highlighting key partners), 7. The Collaboration (A dual-tabbed call-to-action for companies and politicians). This structure was chosen to guide the user through a compelling story of need, opportunity, and solution, making it more persuasive than a simple report summary. -->
     <!-- Visualization & Content Choices: 
         - Report Info: History of FNB. Goal: Show resilience. Viz: Interactive Timeline (HTML/CSS/JS). Interaction: Click to reveal text. Justification: More engaging than a text block, frames the 'hiatus' positively.
         - Report Info: Project Impacts (Social, Env, Econ, Political). Goal: Compare value propositions. Viz: Donut Chart (Chart.js/Canvas). Interaction: Hover on a segment to update a detailed text block. Justification: Visually summarizes the multifaceted value and encourages exploration.
@@ -20,32 +21,43 @@
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F7FDF9; /* Very light green-white from original palette, works well as base */
-            color: #212121; /* Dark text for contrast */
+            font-family: 'Urbanist', sans-serif;
+            background-color: #F7F7F7;
+            /* Light Gray/White from new palette */
+            color: #212121;
+            /* Dark text for contrast */
         }
-        .text-balance { text-wrap: balance; }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
         .active-nav {
             font-weight: 700;
-            color: #004D40; /* Primary Deep Blue-Green */
+            color: #4A45B0;
         }
+
         .inactive-nav {
-            color: #00838F; /* Secondary Blue-Green */
+            color: #4CAF50;
         }
+
         .tab-btn {
             transition: all 0.3s ease;
-            border-radius: 0.5rem; /* Ensure consistent rounded corners */
+            border-radius: 0.5rem;
         }
+
         .tab-btn.active {
-            background-color: #004D40; /* Primary Deep Blue-Green */
+            background-color: #4A45B0;
             color: white;
-            border-color: #004D40;
+            border-color: #4A45B0;
         }
+
         .tab-btn.inactive {
-            background-color: #E0F2F1; /* Very Light Green Background */
-            color: #004D40; /* Primary Deep Blue-Green for text */
-            border-color: #004D40; /* Border with primary color */
+            background-color: #F2F2F2;
+            color: #4A45B0;
+            border-color: #4A45B0;
         }
+
         .timeline-item::before {
             content: '';
             position: absolute;
@@ -53,11 +65,13 @@
             top: 12px;
             bottom: -12px;
             width: 2px;
-            background-color: #80CBC4; /* Light Blue-Green */
+            background-color: #E567C7;
         }
+
         .timeline-item:last-child::before {
             display: none;
         }
+
         .timeline-dot {
             position: absolute;
             left: 0;
@@ -65,10 +79,11 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            background-color: #004D40; /* Primary Deep Blue-Green */
-            border: 4px solid #F7FDF9; /* Body background color */
+            background-color: #4A45B0;
+            border: 4px solid #F7F7F7;
             z-index: 10;
         }
+
         .chart-container {
             position: relative;
             width: 100%;
@@ -78,6 +93,7 @@
             height: 300px;
             max-height: 400px;
         }
+
         @media (min-width: 768px) {
             .chart-container {
                 height: 350px;
@@ -85,123 +101,193 @@
         }
     </style>
 </head>
+
 <body class="text-[#212121]">
 
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="#" class="font-bold text-xl text-[#004D40] flex items-center">
-                <img src="FORO NACIONAL BICI 2025-01_010109.jpg" alt="Logo Foro Nacional de la Bicicleta" class="h-10 mr-2 rounded-md">
-                FNB 2025
+            <a href="/" class="font-bold text-xl text-[#4A45B0] flex items-center">
+                <img src="imgs/foro/logo_horizontal.png" alt="Foro Nacional de la Bicicleta"
+                    class="h-20 mr-2 rounded-md">
             </a>
             <div class="hidden md:flex space-x-6">
-                <a href="#vision" class="nav-link inactive-nav hover:text-[#004D40]">Visión</a>
-                <a href="#plan" class="nav-link inactive-nav hover:text-[#004D40]">El Plan</a>
-                <a href="#equipo" class="nav-link inactive-nav hover:text-[#004D40]">Equipo</a>
-                <a href="#organizaciones" class="nav-link inactive-nav hover:text-[#004D40]">Organizaciones</a>
-                <a href="#colabora" class="nav-link inactive-nav hover:text-[#004D40]">Colabora</a>
+                <a href="#vision" class="nav-link inactive-nav hover:text-[#4A45B0]">Visión</a>
+                <a href="#plan" class="nav-link inactive-nav hover:text-[#4A45B0]">El Plan</a>
+                <a href="#equipo" class="nav-link inactive-nav hover:text-[#4A45B0]">Equipo</a>
+                <a href="#organizaciones" class="nav-link inactive-nav hover:text-[#4A45B0]">Organizaciones</a>
+                <a href="#colabora" class="nav-link inactive-nav hover:text-[#4A45B0]">Colabora</a>
             </div>
-            <a href="#colabora" class="bg-[#FF9800] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#FB8C00] transition-colors">Únete al Movimiento</a>
+            <a href="https://andeschileong.donando.cl/causa/ForoNacionaldelaBicicleta2025-4655" target="_blank"
+                class="bg-[#FFEA80] text-[#212121] px-4 py-2 rounded-lg font-semibold hover:bg-[#FFD700] transition-colors">Donar</a>
         </nav>
     </header>
 
     <main>
-        <section id="hero" class="bg-[#E0F2F1] py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-4xl md:text-6xl font-bold text-[#004D40] mb-4 text-balance">2do Foro Nacional de la Bicicleta</h1>
-                <p class="text-xl md:text-2xl text-[#212121] mb-8 text-balance">Catalizando la transformación urbana en Valparaíso, 30 de Octubre - 02 de Noviembre, 2025.</p>
-                <div class="flex justify-center items-center space-x-4 text-[#004D40]">
+        <section id="hero" class="bg-[#F7F7F7] py-20 relative overflow-hidden">
+
+            <div class="absolute inset-0 z-0 opacity-20"> <!-- Opacity adjusted for visibility -->
+                <div
+                    class="absolute top-1/2 left-1/2 w-[140vw] h-10 bg-[#FFEA80] -translate-x-1/4 -translate-y-1/1 rotate-45">
+                </div>
+                <div class="absolute top-1/2 left-1/1 w-[150vw] h-9 bg-[#4CAF50] -translate-x-1 -translate-y-1/3">
+                </div>
+                <div
+                    class="absolute top-1/2 left-1/4 w-[150vw] h-12 bg-[#E567C7] -translate-x-1/2 -translate-y -rotate-45">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-6 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold text-[#4A45B0] mb-4 text-balance">Foro Nacional de la
+                    Bicicleta 2025</h1>
+                <p class="text-xl md:text-2xl text-[#212121] mb-8 text-balance">
+                    Transformemos ciudades pendientes en ciclo-amigables<br>
+                    30 de Octubre - 02 de Noviembre 2025<br>Valparaíso, Chile
+                </p>
+
+                <div class="flex justify-center items-center space-x-4 text-[#4A45B0]">
                     <span class="text-2xl">🚲</span>
                     <span class="text-lg font-semibold">Movilidad Sostenible</span>
                     <span class="text-2xl">🤝</span>
                     <span class="text-lg font-semibold">Comunidad Activa</span>
-                     <span class="text-2xl">📈</span>
+                    <span class="text-2xl">📈</span>
                     <span class="text-lg font-semibold">Desarrollo Urbano</span>
                 </div>
             </div>
         </section>
 
-        <section id="vision" class="py-16 md:py-24">
+        <section id="vision" class="bg-white py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#004D40] mb-4">Una Visión de Conexión y Seguridad</h2>
-                    <p class="text-lg text-gray-700 text-balance">El FNB 2025 es más que un evento; es una plataforma estratégica para impulsar un cambio real. Nuestro enfoque se centra en dos pilares fundamentales que abarcan desde la infraestructura hasta el bienestar de las personas.</p>
+                    <h2 class="text-3xl md:text-3xl font-bold text-[#4A45B0] mb-4">Una Visión de Conexión y Seguridad
+                    </h2>
+                    <p class="text-xl text-gray-700 text-balance">El FNB 2025 es más que un evento; es una instancia
+                        estratégica para impulsar cambios reales. Esta versión se centra en dos pilares fundamentales
+                        que abarcan desde la infraestructura hasta el bienestar de las personas en el territorio.</p>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#00838F] mb-3">Conexión</h3>
-                        <p class="text-gray-600">Fomentamos alianzas estratégicas entre organizaciones, fortalecemos los lazos comunitarios y conectamos el territorio de forma segura y eficiente. Se trata de sobrevivir y prosperar como movimiento a través de nexos y cuidados mutuos.</p>
+                        <h3 class="text-2xl font-bold text-[#4CAF50] mb-3">Conexión</h3>
+                        <p class="text-gray-600 text-xl">Fomentamos las alianzas estratégicas, fortalecemos los
+                            lazos comunitarios y conectamos el territorio de forma segura y eficiente.
+                            Apostamos a la resiliencia para garantizar un impacto a largo plazo.</p>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-md border border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#80CBC4] mb-3">Seguridad</h3>
-                        <p class="text-gray-600">Abordamos la seguridad desde una perspectiva integral: desplazamientos seguros en la ciudad, protección personal en el espacio público y la resiliencia de nuestras organizaciones para garantizar un impacto a largo plazo.</p>
+                        <h3 class="text-2xl font-bold text-[#E567C7] mb-3">Seguridad</h3>
+                        <p class="text-gray-600 text-xl">Abordamos la seguridad desde una perspectiva integral:
+                            desplazamientos
+                            seguros en la ciudad, protección personal en el espacio público y prosperar
+                            como movimientos a través de nexos y cuidados mutuos.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="oportunidad" class="bg-[#E0F2F1]/50 py-16 md:py-24">
+        <section id="oportunidad" class="bg-[#F7F7F7] py-16 md:py-24">
             <div class="container mx-auto px-6">
-                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#004D40] mb-4">La Oportunidad: ¿Por qué Valparaíso? ¿Por qué Ahora?</h2>
-                    <p class="text-lg text-gray-700 text-balance">El momento y el lugar son clave. Valparaíso enfrenta una crisis de movilidad que la convierte en el laboratorio perfecto para soluciones sostenibles, mientras que la trayectoria del foro demuestra nuestra resiliencia y compromiso.</p>
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">¿Por qué Valparaíso?
+                        ¿Por qué Ahora?</h2>
+                    <p class="text-xl text-gray-700 text-balance">El momento y el lugar son clave. Valparaíso enfrenta
+                        una crisis de movilidad que la convierte en el laboratorio perfecto para soluciones sostenibles,
+                        mientras que la trayectoria del foro demuestra nuestra resiliencia y compromiso.</p>
                 </div>
                 <div class="grid lg:grid-cols-2 gap-12 items-start">
                     <div>
-                        <h3 class="text-2xl font-bold text-[#004D40] mb-6">La Trayectoria del Movimiento</h3>
+                        <h3 class="text-2xl font-bold text-[#4A45B0] mb-6">La Trayectoria del Foro</h3>
                         <div id="timeline" class="relative pl-8">
                             <!-- Timeline items will be injected by JS -->
                         </div>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#004D40] mb-4">Valparaíso: Un Escenario Único</h3>
-                        <p class="text-gray-600 mb-4">Con su rica historia y una crisis de transporte público que espera soluciones, Valparaíso es el lugar ideal para demostrar el poder transformador de la bicicleta. El foro no solo abordará estos desafíos, sino que los convertirá en una narrativa de superación y un modelo para otras ciudades chilenas.</p>
-                        <div class="mt-6 p-4 bg-[#00838F]/10 rounded-lg">
-                            <p class="font-semibold text-[#004D40]">"Este foro es un testimonio de la perseverancia de la sociedad civil, que a pesar de la resistencia, ha posicionado el ciclismo como una alternativa viable."</p>
+                        <h3 class="text-2xl font-bold text-[#4A45B0] mb-4">Valparaíso: Un Escenario Único</h3>
+                        <p class="text-gray-600 mb-4 text-xl">Con su rica historia y una crisis de transporte público
+                            que espera
+                            soluciones, Valparaíso es el lugar ideal para demostrar el poder transformador de la
+                            bicicleta. El foro no solo abordará estos desafíos, sino que los convertirá en una narrativa
+                            de superación y un modelo para otras ciudades chilenas.</p>
+                        <div class="mt-6 p-4 bg-[#4CAF50]/10 rounded-lg">
+                            <p class="font-semibold text-lg text-[#4A45B0]">"Este foro es un testimonio de la
+                                perseverancia de
+                                la sociedad civil, que a pesar de las negativas, ha posicionado el ciclismo como una
+                                alternativa viable en una ciudad en que se pensaba imposible pedalear."</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="plan" class="py-16 md:py-24">
+        <section id="plan" class="bg-white py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#004D40] mb-4">Nuestro Plan de Acción</h2>
-                    <p class="text-lg text-gray-700 text-balance">Pasamos del diálogo a la acción con una iniciativa emblemática y un impacto medible. Creemos en generar cambios tangibles que mejoren directamente la calidad de vida urbana.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Plan de Acción</h2>
+                    <p class="text-xl text-gray-700 text-balance">Pasamos del diálogo a la acción con una iniciativa
+                        emblemática y un impacto medible. Creemos en generar cambios tangibles que mejoren directamente
+                        la calidad de vida urbana.</p>
                 </div>
                 <div class="grid lg:grid-cols-2 gap-12 items-center mb-16">
                     <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#004D40] mb-4">Iniciativa Emblemática: Avenida España</h3>
-                        <p class="text-gray-600 mb-6">Nuestro objetivo más visible es catalizar la **Redistribución de Espacios en la Avenida España**, una arteria vital cuyo deterioro es un problema de larga data. Queremos romper la inercia política y demostrar que la colaboración puede generar la infraestructura que la ciudadanía merece.</p>
-                        <div id="avenida-container" class="border-2 border-[#80CBC4] rounded-lg p-4">
+                        <h3 class="text-2xl font-bold text-[#4A45B0] mb-4">Proyecto Emblema: Redistribuir la Avenida
+                            España</h3>
+                        <p class="text-gray-600 text-xl mb-6">
+                            Queremos poner sobre la mesa la necesidad imperiosa de <b>redistribuir y rediseñar nuestra
+                                Avenida España</b>,
+                            una arteria vital cuyo deterioro es un problema de larga
+                            data. Queremos romper la inercia política y demostrar que la colaboración puede generar la
+                            infraestructura que la ciudadanía merece y necesita para movilizarse de forma segura en esta
+                            arteria tan importante
+                            para la región y el país.</p>
+                        <!-- <div id="avenida-container" class="border-2 border-[#4CAF50] rounded-lg p-4">
                             <div class="flex justify-center mb-4">
-                                <button id="toggleAvenida" class="bg-[#004D40] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#00838F] transition-colors">Ver Propuesta de Mejora</button>
+                                <button id="toggleAvenida"
+                                    class="bg-[#4A45B0] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#4CAF50] transition-colors">Ver
+                                    Propuesta de Mejora</button>
                             </div>
-                            <div id="avenida-viz" class="relative h-40 bg-gray-300 rounded-md overflow-hidden transition-all duration-500">
+                            <div id="avenida-viz"
+                                class="relative h-40 bg-gray-300 rounded-md overflow-hidden transition-all duration-500">
                                 <div class="absolute inset-0 flex flex-col justify-center items-center text-center p-2">
-                                    <div class="w-full h-8 bg-gray-500 flex items-center justify-center text-white text-xs">ACERA ESTRECHA</div>
-                                    <div class="w-full h-24 bg-gray-700 flex items-center justify-center text-white text-sm">VÍAS PARA AUTOS</div>
-                                    <div class="w-full h-8 bg-gray-400 flex items-center justify-center text-white text-xs">SIN ESPACIO SEGURO</div>
+                                    <div
+                                        class="w-full h-8 bg-gray-500 flex items-center justify-center text-white text-xs">
+                                        ACERA ESTRECHA</div>
+                                    <div
+                                        class="w-full h-24 bg-gray-700 flex items-center justify-center text-white text-sm">
+                                        VÍAS PARA AUTOS</div>
+                                    <div
+                                        class="w-full h-8 bg-gray-400 flex items-center justify-center text-white text-xs">
+                                        SIN ESPACIO SEGURO</div>
                                 </div>
-                                <div id="avenida-after" class="absolute inset-0 flex flex-col justify-center items-center text-center p-2 bg-gray-300 transition-opacity duration-500 opacity-0">
-                                     <div class="w-full h-10 bg-[#80CBC4] flex items-center justify-center text-[#004D40] text-xs font-semibold">ACERA AMPLIA Y ACCESIBLE</div>
-                                    <div class="w-full h-10 bg-[#00838F] flex items-center justify-center text-white text-xs font-semibold">CICLOVÍA SEGREGADA</div>
-                                    <div class="w-full h-12 bg-[#212121] flex items-center justify-center text-white text-sm">VÍAS PARA AUTOS</div>
-                                    <div class="w-full h-8 bg-[#FF9800] flex items-center justify-center text-white text-xs font-semibold">TRANSPORTE PÚBLICO</div>
+                                <div id="avenida-after"
+                                    class="absolute inset-0 flex flex-col justify-center items-center text-center p-2 bg-gray-300 transition-opacity duration-500 opacity-0">
+                                    <div
+                                        class="w-full h-10 bg-[#E567C7] flex items-center justify-center text-white text-xs font-semibold">
+                                        ACERA AMPLIA Y ACCESIBLE</div>
+                                    <div
+                                        class="w-full h-10 bg-[#4CAF50] flex items-center justify-center text-white text-xs font-semibold">
+                                        CICLOVÍA SEGREGADA</div>
+                                    <div
+                                        class="w-full h-12 bg-[#212121] flex items-center justify-center text-white text-sm">
+                                        VÍAS PARA AUTOS</div>
+                                    <div
+                                        class="w-full h-8 bg-[#FFEA80] flex items-center justify-center text-white text-xs font-semibold">
+                                        TRANSPORTE PÚBLICO</div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="text-center lg:text-left">
-                         <h3 class="text-2xl font-bold text-[#004D40] mb-4">Impacto Multifacético</h3>
-                        <p class="text-gray-600 mb-6">El foro generará beneficios en cuatro áreas estratégicas. Explore el gráfico para ver cómo su apoyo se traduce en un progreso real.</p>
+                        <h3 class="text-2xl font-bold text-[#4A45B0] mb-4">Impacto Multifacético</h3>
+                        <p class="text-gray-600 text-xl mb-6">El foro generará beneficios en cuatro áreas estratégicas.
+                            Explore
+                            el gráfico para ver cómo su apoyo se traduce en un progreso real.</p>
                         <div class="flex flex-col md:flex-row items-center gap-6">
                             <div class="chart-container">
                                 <canvas id="impactChart"></canvas>
                             </div>
-                            <div id="impact-info" class="w-full md:w-1/2 p-6 bg-white rounded-xl shadow-md min-h-[150px]">
-                                <h4 id="impact-title" class="text-xl font-bold text-[#004D40] mb-2">Pase el cursor sobre el gráfico</h4>
-                                <p id="impact-text" class="text-gray-600">para descubrir los detalles de nuestro impacto.</p>
+                            <div id="impact-info"
+                                class="w-full md:w-1/2 p-6 bg-white rounded-xl shadow-md min-h-[150px]">
+                                <h4 id="impact-title" class="text-xl font-bold text-[#4A45B0] mb-2">Pase el cursor sobre
+                                    el gráfico</h4>
+                                <p id="impact-text" class="text-gray-600">para descubrir los detalles de nuestro
+                                    impacto.</p>
                             </div>
                         </div>
                     </div>
@@ -209,49 +295,64 @@
             </div>
         </section>
 
-        <section id="equipo" class="bg-[#E0F2F1]/50 py-16 md:py-24">
+        <section id="equipo" class="bg-[#F7F7F7] py-16 md:py-24">
             <div class="container mx-auto px-6">
-                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#004D40] mb-4">Una Organización Sólida y Comprometida</h2>
-                    <p class="text-lg text-gray-700 text-balance">Liderado por la Mesa Nacional Ciclista y Andes Chile ONG, el foro cuenta con un equipo experimentado y una estructura de comisiones especializadas que garantizan una gestión profesional y transparente del proyecto.</p>
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Una Organización Sólida y
+                        Comprometida</h2>
+                    <p class="text-xl text-gray-700 text-balance">Liderado por la Mesa Nacional Ciclista y Andes Chile
+                        ONG, el foro cuenta con un equipo experimentado y una estructura de comisiones especializadas
+                        que garantizan una gestión profesional y transparente del proyecto.</p>
                 </div>
-                <div id="commissions-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div id="commissions-grid"
+                    class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                     <!-- Commissions will be injected by JS -->
                 </div>
             </div>
         </section>
 
-        <section id="organizaciones" class="py-16 md:py-24">
+        <section id="organizaciones" class="bg-white py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#004D40] mb-4">Organizaciones de la Mesa Nacional Ciclista</h2>
-                    <p class="text-lg text-gray-700 text-balance">La Mesa Nacional Ciclista agrupa a diversas organizaciones comprometidas con la promoción de la bicicleta y la movilidad sostenible en Chile. Su fuerza radica en la colaboración y el trabajo conjunto.</p>
-                    <p class="text-sm text-gray-500 mt-4">**Nota:** Los logos y nombres de las organizaciones a continuación son ejemplos. Por favor, actualiza esta sección con la información real de tu fuente (mesanacionalciclista.cl y Google Drive).</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Organizaciones de la Mesa Nacional
+                        Ciclista</h2>
+                    <p class="text-xl text-gray-700 text-balance">La Mesa Nacional Ciclista agrupa a diversas
+                        organizaciones comprometidas con la promoción de la bicicleta y la movilidad sostenible en
+                        Chile. Su fuerza radica en la colaboración y el trabajo conjunto.</p>
                 </div>
-                <div id="organizations-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                <div id="organizations-grid"
+                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
                     <!-- Organizations will be injected by JS -->
                 </div>
             </div>
         </section>
 
-        <section id="colabora" class="py-16 md:py-24">
-             <div class="container mx-auto px-6">
+        <section id="colabora" class="bg-[#F7F7F7] py-16 md:py-24">
+            <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#004D40] mb-4">Colabora con Nosotros</h2>
-                    <p class="text-lg text-gray-700 text-balance">Su apoyo es fundamental para hacer realidad esta visión. Ofrecemos oportunidades de colaboración diferenciadas para empresas y actores políticos, maximizando el valor de su participación.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Colabora con Nosotros</h2>
+                    <p class="text-xl text-gray-700 text-balance">Su apoyo es fundamental para hacer realidad esta
+                        visión. Ofrecemos oportunidades de colaboración diferenciadas para empresas y actores políticos,
+                        maximizando el valor de su participación.</p>
                     <div class="mt-8 flex justify-center space-x-2">
-                        <button id="btn-empresas" class="tab-btn active px-6 py-2 font-semibold border-2">Para Empresas</button>
-                        <button id="btn-politicos" class="tab-btn inactive px-6 py-2 font-semibold border-2">Para Actores Políticos</button>
+                        <button id="btn-empresas" class="tab-btn active px-6 py-2 font-semibold border-2">Para
+                            Empresas</button>
+                        <button id="btn-politicos" class="tab-btn inactive px-6 py-2 font-semibold border-2">Para
+                            Actores Políticos</button>
                     </div>
                 </div>
 
                 <div id="content-empresas" class="max-w-5xl mx-auto">
                     <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#00838F] mb-4">Invierta en Comunidades Sostenibles y Liderazgo de Marca</h3>
-                        <p class="text-gray-600 mb-6">Asociarse con el FNB 2025 es una inversión estratégica en Responsabilidad Social Corporativa, sostenibilidad y desarrollo comunitario. Ofrecemos una visibilidad de marca significativa y un retorno tangible a través de nuestro impacto medible.</p>
-                         <div class="overflow-x-auto">
+                        <h3 class="text-2xl font-bold text-[#4CAF50] mb-4">Invierta en Comunidades Sostenibles y
+                            Liderazgo de Marca</h3>
+                        <p class="text-gray-600 text-xl mb-6">Asociarse con el FNB 2025 es una inversión estratégica en
+                            Responsabilidad Social Corporativa, sostenibilidad y desarrollo comunitario. Ofrecemos una
+                            visibilidad de marca significativa y un retorno tangible a través de nuestro impacto
+                            medible.</p>
+                        <div class="overflow-x-auto">
                             <table class="w-full text-left">
-                                <thead class="bg-[#004D40]/10 text-[#004D40]">
+                                <thead class="bg-[#4A45B0]/10 text-[#4A45B0]">
                                     <tr>
                                         <th class="p-3">Nivel de Patrocinio</th>
                                         <th class="p-3">Beneficios Clave</th>
@@ -260,15 +361,19 @@
                                 <tbody>
                                     <tr class="border-b">
                                         <td class="p-3 font-semibold">Socio Platino</td>
-                                        <td class="p-3">Destacado en todos los materiales, oportunidades de oratoria, stand premium, mención en prensa, derechos de nombre de actividades.</td>
+                                        <td class="p-3">Destacado en todos los materiales, oportunidades de oratoria,
+                                            stand premium, mención en prensa, derechos de denominación de actividades.
+                                        </td>
                                     </tr>
                                     <tr class="border-b">
                                         <td class="p-3 font-semibold">Patrocinador Oro</td>
-                                        <td class="p-3">Presencia prominente, stand de exhibición, participación en paneles.</td>
+                                        <td class="p-3">Presencia prominente, stand de exhibición, participación en
+                                            paneles.</td>
                                     </tr>
                                     <tr class="border-b">
                                         <td class="p-3 font-semibold">Colaborador Plata</td>
-                                        <td class="p-3">Reconocimiento en materiales seleccionados, mención en sitio web.</td>
+                                        <td class="p-3">Reconocimiento en materiales seleccionados, mención en sitio
+                                            web.</td>
                                     </tr>
                                     <tr>
                                         <td class="p-3 font-semibold">Contribuyente Bronce</td>
@@ -280,39 +385,56 @@
                     </div>
                 </div>
 
-                 <div id="content-politicos" class="hidden max-w-5xl mx-auto">
-                     <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#80CBC4] mb-4">Habilite Políticas Públicas y Fomente el Progreso</h3>
-                        <p class="text-gray-600 mb-6">Solicitamos un apoyo que va más allá de lo financiero: gestión, patrocinio y alineación con políticas públicas. Su respaldo puede acelerar la implementación de soluciones de movilidad, cumplir promesas electorales y responder a demandas ciudadanas concretas como el proyecto de Avenida España.</p>
+                <div id="content-politicos" class="hidden max-w-5xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
+                        <h3 class="text-2xl font-bold text-[#E567C7] mb-4">Habilite Políticas Públicas y Fomente el
+                            Progreso</h3>
+                        <p class="text-gray-600 text-xl mb-6">Solicitamos un apoyo que va más allá de lo financiero: gestión,
+                            patrocinio y alineación con políticas públicas. Su respaldo puede acelerar la implementación
+                            de soluciones de movilidad, cumplir promesas electorales y responder a demandas ciudadanas
+                            concretas como el proyecto de Avenida España.</p>
                         <ul class="space-y-4">
-                            <li class="flex items-start"><span class="text-[#004D40] font-bold text-xl mr-3">🏛️</span><div><span class="font-semibold">Planificación Urbana:</span> Facilitar permisos y adoptar las recomendaciones de política del foro.</div></li>
-                            <li class="flex items-start"><span class="text-[#004D40] font-bold text-xl mr-3">✅</span><div><span class="font-semibold">Infraestructura:</span> Asignar recursos para infraestructura ciclista y de transporte público.</div></li>
-                            <li class="flex items-start"><span class="text-[#004D40] font-bold text-xl mr-3">🤝</span><div><span class="font-semibold">Patrocinio Institucional:</span> Otorgar un endoso oficial que legitime y respalde el evento.</div></li>
-                             <li class="flex items-start"><span class="text-[#004D40] font-bold text-xl mr-3">🌍</span><div><span class="font-semibold">Desarrollo Regional:</span> Demostrar un compromiso con el desarrollo equilibrado y descentralizado del país.</div></li>
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🏛️</span>
+                                <div><span class="font-semibold">Planificación Urbana:</span> Facilitar permisos y
+                                    adoptar las recomendaciones de política del foro.</div>
+                            </li>
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">✅</span>
+                                <div><span class="font-semibold">Infraestructura:</span> Asignar recursos para
+                                    infraestructura ciclista y de transporte público.</div>
+                            </li>
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🤝</span>
+                                <div><span class="font-semibold">Patrocinio Institucional:</span> Otorgar un endoso
+                                    oficial que legitime y respalde el evento.</div>
+                            </li>
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🌍</span>
+                                <div><span class="font-semibold">Desarrollo Regional:</span> Demostrar un compromiso con
+                                    el desarrollo equilibrado y descentralizado del país.</div>
+                            </li>
                         </ul>
                     </div>
                 </div>
-             </div>
+            </div>
         </section>
     </main>
-    
+
     <footer class="bg-[#212121] text-white">
-        <div class="container mx-auto px-6 py-12 text-center">
+        <div class="container mx-auto px-6 py-10 text-center">
             <h3 class="text-2xl font-bold mb-4">Contáctenos</h3>
-            <p class="mb-2">Estamos listos para conversar sobre cómo podemos colaborar.</p>
-            <p class="font-semibold text-[#80CBC4] mb-6">equipo@andeschileong.cl</p>
+            <p class="mb-2 text-xt">Estamos listos para conversar sobre cómo podemos colaborar.</p>
+            <p class="font-semibold text-[#E567C7] mb-6"><a href="mailto:equipo@andeschileong.cl">equipo@andeschileong.cl</a></p>
             <div class="flex justify-center space-x-8 items-center">
                 <p class="font-bold flex items-center">Organizan:</p>
-                <span>Andes Chile ONG</span>
-                <span>Mesa Nacional Ciclista</span>
-                <img src="FORO NACIONAL BICI 2025-02_010049.jpg" alt="Logo Foro Nacional de la Bicicleta Compacto" class="h-10 ml-2 rounded-md">
+                <span><a href="https://andeschileong.cl">Andes Chile ONG</a></span>
+                <span><a href="https://mesanacionalciclista.cl">Mesa Nacional Ciclista</a></span>
+                <!--  <img src="imgs/foro/logo_horizontal.png" alt="Logo Foro Nacional de la Bicicleta Compacto"
+                    class="h-25 ml-2 rounded-md">  -->
             </div>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            
+
             const timelineData = [
                 {
                     year: '2021',
@@ -322,7 +444,7 @@
                 {
                     year: '2022-2024',
                     title: 'Pausa Estratégica y Reestructuración',
-                    description: 'Un hiato de tres años que no fue de inactividad, sino de "reparación y reestructuración". Este período de reflexión fortaleció al movimiento.'
+                    description: 'Una pausa de tres años que no fue de inactividad, sino de "reparación y reestructuración". Este período de reflexión fortaleció a las organizaciones de la Mesa Nacional Ciclista.'
                 },
                 {
                     year: '2025',
@@ -338,8 +460,8 @@
                 div.innerHTML = `
                     <div class="timeline-dot"></div>
                     <div class="ml-10">
-                        <h4 class="font-bold text-xl text-[#004D40]">${item.year}: ${item.title}</h4>
-                        <p class="text-gray-600 mt-1">${item.description}</p>
+                        <h4 class="font-bold text-xl text-[#4A45B0]">${item.year}: ${item.title}</h4>
+                        <p class="text-gray-600 text-lg mt-1">${item.description}</p>
                     </div>
                 `;
                 timelineContainer.appendChild(div);
@@ -361,7 +483,7 @@
                 div.className = 'bg-white p-6 rounded-xl shadow-md text-center';
                 div.innerHTML = `
                     <span class="text-4xl">${commission.icon}</span>
-                    <h4 class="font-bold text-lg mt-3 text-[#004D40]">${commission.name}</h4>
+                    <h4 class="font-bold text-lg mt-3 text-[#4A45B0]">${commission.name}</h4>
                 `;
                 commissionsGrid.appendChild(div);
             });
@@ -369,34 +491,134 @@
             // Placeholder for Mesa Nacional Ciclista Organizations
             // Updated placeholder colors to match the new palette
             const organizationsData = [
-                { name: 'Organización A', logo: 'https://placehold.co/100x100/00838F/FFFFFF?text=Org+A' },
-                { name: 'Organización B', logo: 'https://placehold.co/100x100/004D40/FFFFFF?text=Org+B' },
-                { name: 'Organización C', logo: 'https://placehold.co/100x100/FF9800/FFFFFF?text=Org+C' },
-                { name: 'Organización D', logo: 'https://placehold.co/100x100/80CBC4/004D40?text=Org+D' },
-                { name: 'Organización E', logo: 'https://placehold.co/100x100/00838F/FFFFFF?text=Org+E' },
-                { name: 'Organización F', logo: 'https://placehold.co/100x100/004D40/FFFFFF?text=Org+F' }
+                {
+                    name: "Ciclistas Urbanos Hospital San José",
+                    logo: "imgs/orgs/ciclistas_hospital_san_jose.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Andes Chile ONG",
+                    logo: "imgs/orgs/andeschile ong.png",
+                    city: "Valparaíso"
+                },
+                {
+                    name: "Club Social, Cunltural y Deportivo Ciclolumpen",
+                    logo: "imgs/orgs/ciclolumpen.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Cicleayque",
+                    logo: "imgs/orgs/Cicleayque.jpg",
+                    city: "Coyhaique"
+                },
+                {
+                    name: "Cicletada de las niñas",
+                    logo: "imgs/orgs/cicletadadelasninas.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Club Deportivo Guayakanes",
+                    logo: "imgs/orgs/Club Deportivo Guayakanes.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Cleterxs Talca",
+                    logo: "imgs/orgs/cleterxstalca.jpg",
+                    city: "Talca"
+                },
+                {
+                    name: "Colectivo Pedalea Autonomía",
+                    logo: "imgs/orgs/colectivo pedalea autonomia-antofagasta.jpg",
+                    city: "Antofagasta"
+                },
+                {
+                    name: "Colectivo Bioenergía",
+                    logo: "imgs/orgs/BIOENERGIA-rancagua.png",
+                    city: "Rancagua"
+                },
+                {
+                    name: "Curicó Pedalea",
+                    logo: "imgs/orgs/curicopedalea.jpeg",
+                    city: "Curicó"
+                },
+                {
+                    name: "Educleta",
+                    logo: "imgs/orgs/educleta.png",
+                    city: "Santiago"
+                },
+                {
+                    name: "Fundación Cicloactiva",
+                    logo: "imgs/orgs/Fundación Cicloactiva Valdivia.jpg",
+                    city: "Valdivia"
+                },
+                {
+                    name: "Fundación Pedalea Ciclismo Urbano",
+                    logo: "imgs/orgs/fundacionpedalea.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Indepecleta",
+                    logo: "imgs/orgs/indepecleta.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Koncleta",
+                    logo: "imgs/orgs/koncleta_.jpg",
+                    city: "Biobío"
+                },
+                {
+                    name: "La Quinta Pedalea",
+                    logo: "imgs/orgs/laquintapedalea.jpg",
+                    city: "Villa Alemana"
+                },
+                {
+                    name: "Mesa Movilidad Renca",
+                    logo: "imgs/orgs/mesa_movilidad_renca.jpg",
+                    city: "Renca"
+                },
+                {
+                    name: "Movimiento Furiosos Ciclistas",
+                    logo: "imgs/orgs/MFC Santiago.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Movimiento Lluviosos Ciclistas",
+                    logo: "imgs/orgs/LLUVIOSXS-CICLISTAS.jpg",
+                    city: "Puerto Montt"
+                },
+                {
+                    name: "Pedal Autónomo",
+                    logo: "imgs/orgs/pedal autonomo.jpg",
+                    city: "Concepción"
+                },
+                {
+                    name: "Ruidosas Bio Bio",
+                    logo: "imgs/orgs/ruidosasbiobio.jpg",
+                    city: "Concepción"
+                }
             ];
 
             const organizationsGrid = document.getElementById('organizations-grid');
             organizationsData.forEach(org => {
                 const div = document.createElement('div');
-                div.className = 'bg-white p-4 rounded-xl shadow-md text-center flex flex-col items-center justify-center';
+                div.className = 'bg-white p-2 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
                 div.innerHTML = `
-                    <img src="${org.logo}" alt="Logo de ${org.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
-                    <h4 class="font-semibold text-sm text-[#004D40]">${org.name}</h4>
+                    <img src="${org.logo}" alt="Logo ${org.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
+                    <h4 class="font text-lg text-[#4A45B0]">${org.name}</h4>
+                    <p class="font text-sm text-[#4A45B0]">${org.city}</p>
                 `;
                 organizationsGrid.appendChild(div);
             });
 
 
             const impactData = {
-                labels: ['Social', 'Ambiental', 'Económico', 'Político'],
+                labels: ['Social', 'Ambiental', 'Economico', 'Politico'],
                 datasets: [{
                     label: 'Impacto del Foro',
                     data: [1, 1, 1, 1],
                     // Updated background colors to align with the new palette
-                    backgroundColor: ['#00838F', '#80CBC4', '#FF9800', '#004D40'],
-                    borderColor: '#F7FDF9', /* Body background color for border */
+                    backgroundColor: ['#4CAF50', '#E567C7', '#FFEA80', '#4A45B0'],
+                    borderColor: '#F7F7F7', /* Body background color for border */
                     borderWidth: 4,
                     hoverOffset: 16
                 }]
@@ -405,7 +627,7 @@
             const impactInfo = {
                 social: {
                     title: 'Impacto Social',
-                    text: 'Mejora del bienestar comunitario, fomento de la participación ciudadana (incluyendo niños y adolescentes) y promoción de la salud pública.'
+                    text: 'Mejora del bienestar comunitario, fomento de la participación ciudadana (incluyendo niños, niñas y adolescentes) y promoción de la salud pública.'
                 },
                 ambiental: {
                     title: 'Impacto Ambiental',
@@ -413,14 +635,14 @@
                 },
                 economico: {
                     title: 'Impacto Económico',
-                    text: 'Revitalización económica local a través del turismo, estímulo a la "ciclo-economía" y catalizador de nuevas inversiones en infraestructura.'
+                    text: 'Revitalización económica local a través del turismo, estímulo al turismo previo a la temporada alta y catalizador de nuevas inversiones en infraestructura.'
                 },
                 politico: {
-                    title: 'Impacto Político y de Políticas',
-                    text: 'Alineación con agendas de desarrollo, influencia directa en políticas públicas y fortalecimiento de la democracia participativa.'
+                    title: 'Políticas Públicas',
+                    text: 'Alineación con agendas de desarrollo, influencia directa en políticas públicas y fortalecimiento de la democracia participativa para mejores ciudades.'
                 }
             };
-            
+
             const ctx = document.getElementById('impactChart').getContext('2d');
             const impactChart = new Chart(ctx, {
                 type: 'doughnut',
@@ -436,19 +658,20 @@
                     onHover: (event, chartElement) => {
                         const canvas = event.native.target;
                         canvas.style.cursor = chartElement[0] ? 'pointer' : 'default';
-                        
+
                         const impactTitle = document.getElementById('impact-title');
                         const impactText = document.getElementById('impact-text');
 
                         if (chartElement.length) {
                             const index = chartElement[0].index;
                             const key = impactData.labels[index].toLowerCase();
+                            console.log(key)
                             const info = impactInfo[key];
                             impactTitle.textContent = info.title;
                             impactText.textContent = info.text;
                         } else {
-                             impactTitle.textContent = 'Pase el cursor sobre el gráfico';
-                             impactText.textContent = 'para descubrir los detalles de nuestro impacto.';
+                            impactTitle.textContent = 'Pase el cursor sobre el gráfico';
+                            impactText.textContent = 'para descubrir los detalles de nuestro impacto.';
                         }
                     }
                 }
@@ -476,7 +699,7 @@
                 contentPoliticos.classList.remove('hidden');
                 contentEmpresas.classList.add('hidden');
             });
-            
+
             const toggleAvenidaBtn = document.getElementById('toggleAvenida');
             const avenidaAfter = document.getElementById('avenida-after');
             let isAvenidaImproved = false;
@@ -516,4 +739,5 @@
         });
     </script>
 </body>
+
 </html>

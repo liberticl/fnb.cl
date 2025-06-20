@@ -23,9 +23,7 @@
         body {
             font-family: 'Urbanist', sans-serif;
             background-color: #F7F7F7;
-            /* Light Gray/White from new palette */
             color: #212121;
-            /* Dark text for contrast */
         }
 
         .text-balance {
@@ -110,15 +108,18 @@
                 <img src="imgs/foro/logo_horizontal.png" alt="Foro Nacional de la Bicicleta"
                     class="h-20 mr-2 rounded-md">
             </a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#vision" class="nav-link inactive-nav hover:text-[#4A45B0]">Visión</a>
-                <a href="#plan" class="nav-link inactive-nav hover:text-[#4A45B0]">El Plan</a>
-                <a href="#equipo" class="nav-link inactive-nav hover:text-[#4A45B0]">Equipo</a>
-                <a href="#organizaciones" class="nav-link inactive-nav hover:text-[#4A45B0]">Organizaciones</a>
-                <a href="#colabora" class="nav-link inactive-nav hover:text-[#4A45B0]">Colabora</a>
+            <div class="hidden md:flex space-x-5">
+                <a href="#vision" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Visión</a>
+                <a href="#plan" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">El Plan</a>
+                <a href="#equipo" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Equipo</a>
+                <a href="#organizaciones"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Organizaciones</a>
+                <a href="#participan"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Participan</a>
+                <a href="#unete" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Únete</a>
             </div>
             <a href="https://andeschileong.donando.cl/causa/ForoNacionaldelaBicicleta2025-4655" target="_blank"
-                class="bg-[#FFEA80] text-[#212121] px-4 py-2 rounded-lg font-semibold hover:bg-[#FFD700] transition-colors">Donar</a>
+                class="bg-[#FFEA80] text-[#212121] px-6 py-3 rounded-lg font-bold hover:bg-[#FFD700] transition-colors">Donar</a>
         </nav>
     </header>
 
@@ -141,16 +142,21 @@
                     Bicicleta 2025</h1>
                 <p class="text-xl md:text-2xl text-[#212121] mb-8 text-balance">
                     Transformemos ciudades pendientes en ciclo-amigables<br>
-                    30 de Octubre - 02 de Noviembre 2025<br>Valparaíso, Chile
+                    30 de Octubre - 02 de Noviembre 2025<br>
+                    Valparaíso, Chile
                 </p>
 
                 <div class="flex justify-center items-center space-x-4 text-[#4A45B0]">
+                    <span class="text-3xl">|</span>
                     <span class="text-2xl">🚲</span>
                     <span class="text-lg font-semibold">Movilidad Sostenible</span>
+                    <span class="text-3xl">|</span>
                     <span class="text-2xl">🤝</span>
                     <span class="text-lg font-semibold">Comunidad Activa</span>
-                    <span class="text-2xl">📈</span>
+                    <span class="text-3xl">|</span>
+                    <span class="text-xl">📈</span>
                     <span class="text-lg font-semibold">Desarrollo Urbano</span>
+                    <span class="text-3xl">|</span>
                 </div>
             </div>
         </section>
@@ -158,7 +164,7 @@
         <section id="vision" class="bg-white py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-3xl font-bold text-[#4A45B0] mb-4">Una Visión de Conexión y Seguridad
+                    <h2 class="text-3xl md:text-3xl font-bold text-[#4A45B0] mb-4">Conexión y Seguridad
                     </h2>
                     <p class="text-xl text-gray-700 text-balance">El FNB 2025 es más que un evento; es una instancia
                         estratégica para impulsar cambios reales. Esta versión se centra en dos pilares fundamentales
@@ -314,20 +320,157 @@
         <section id="organizaciones" class="bg-white py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Organizaciones de la Mesa Nacional
-                        Ciclista</h2>
-                    <p class="text-xl text-gray-700 text-balance">La Mesa Nacional Ciclista agrupa a diversas
-                        organizaciones comprometidas con la promoción de la bicicleta y la movilidad sostenible en
-                        Chile. Su fuerza radica en la colaboración y el trabajo conjunto.</p>
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Organizaciones detrás del Foro</h2>
+                    <p class="text-xl text-gray-700 text-balance">
+                        El Foro Nacional de la Bicicleta existe porque distintas organizaciones a nivel nacional y local
+                        creen en este proyecto colectivo y colaboran desde sus espacios y conocimientos a que podamos
+                        realizar
+                        esta nueva versión.
+                    </p>
                 </div>
-                <div id="organizations-grid"
-                    class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
-                    <!-- Organizations will be injected by JS -->
+                <div class="mt-8 flex justify-center space-x-2">
+                    <button id="btn-mesa" class="tab-btn active px-6 py-2 font-semibold border-2">
+                        Mesa Nacional Ciclista</button>
+                    <button id="btn-orgas" class="tab-btn inactive px-6 py-2 font-semibold border-2">
+                        Otras Organizaciones</button>
+                </div>
+                <br><br>
+                <div id="content-mesa" class="max-w-5xl mx-auto">
+                    <!-- <div class="text-center max-w-3xl mx-auto mb-12">
+                        <p class="text-xl text-gray-700 text-balance">La Mesa Nacional Ciclista agrupa a diversas
+                            organizaciones comprometidas con la promoción de la bicicleta y la movilidad sostenible en
+                            Chile. Su fuerza radica en la colaboración y el trabajo conjunto.</p>
+                    </div> -->
+                    <div id="mesa-organizations-grid"
+                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                        <!-- Organizations will be injected by JS -->
+                    </div>
+                </div>
+                <div id="content-orgas" class="hidden max-w-5xl mx-auto">
+                    <div id="organizations-grid"
+                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                        <!-- Organizations will be injected by JS -->
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="colabora" class="bg-[#F7F7F7] py-16 md:py-24">
+        <section id="participan" class="bg-[#F7F7F7] py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Conoce a los que ya están colaborando
+                    </h2>
+                    <p class="text-xl text-gray-700 text-balance">En el Foro Nacional de la Bicicleta recibimos apoyo
+                        desde distintos mundos,
+                        entre los que contamos empresas privadas, entidades públicas y personas naturales.</p>
+                    <div class="mt-8 flex justify-center space-x-2">
+                        <button id="btn-empresas-act" class="tab-btn inactive px-6 py-2 font-semibold border-2">
+                            Empresas</button>
+                        <button id="btn-politicos-act" class="tab-btn inactive px-6 py-2 font-semibold border-2">
+                            Actores Políticos</button>
+                        <button id="btn-personas-act" class="tab-btn active px-6 py-2 font-semibold border-2">
+                            Personas Naturales</button>
+                    </div>
+                </div>
+
+                <div id="cont-empresas" class="hidden max-w-5xl mx-auto">
+                    <!-- <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
+                        <h3 class="text-2xl font-bold text-[#4CAF50] mb-4">Invierta en Comunidades Sostenibles y
+                            Liderazgo de Marca</h3>
+                        <p class="text-gray-600 text-xl mb-6">Asociarse con el FNB 2025 es una inversión estratégica en
+                            Responsabilidad Social Corporativa, sostenibilidad y desarrollo comunitario. Ofrecemos una
+                            visibilidad de marca significativa y un retorno tangible a través de nuestro impacto
+                            medible.</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-[#4A45B0]/10 text-[#4A45B0]">
+                                    <tr>
+                                        <th class="p-3">Nivel de Patrocinio</th>
+                                        <th class="p-3">Beneficios Clave</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-semibold">Socio Platino</td>
+                                        <td class="p-3">Destacado en todos los materiales, oportunidades de oratoria,
+                                            stand premium, mención en prensa, derechos de denominación de actividades.
+                                        </td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-semibold">Patrocinador Oro</td>
+                                        <td class="p-3">Presencia prominente, stand de exhibición, participación en
+                                            paneles.</td>
+                                    </tr>
+                                    <tr class="border-b">
+                                        <td class="p-3 font-semibold">Colaborador Plata</td>
+                                        <td class="p-3">Reconocimiento en materiales seleccionados, mención en sitio
+                                            web.</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="p-3 font-semibold">Contribuyente Bronce</td>
+                                        <td class="p-3">Reconocimiento en listados generales del sitio web.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div> -->
+                </div>
+
+                <div id="cont-politicos" class="hidden max-w-5xl mx-auto">
+                    <!-- <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
+                        <h3 class="text-2xl font-bold text-[#E567C7] mb-4">Habilite Políticas Públicas y Fomente el
+                            Progreso</h3>
+                        <p class="text-gray-600 text-xl mb-6">Solicitamos un apoyo que va más allá de lo financiero:
+                            gestión,
+                            patrocinio y alineación con políticas públicas. Su respaldo puede acelerar la implementación
+                            de soluciones de movilidad, cumplir promesas electorales y responder a demandas ciudadanas
+                            concretas como el proyecto de Avenida España.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🏛️</span>
+                                <div><span class="font-semibold">Planificación Urbana:</span> Facilitar permisos y
+                                    adoptar las recomendaciones de política del foro.</div>
+                            </li>
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">✅</span>
+                                <div><span class="font-semibold">Infraestructura:</span> Asignar recursos para
+                                    infraestructura ciclista y de transporte público.</div>
+                            </li>
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🤝</span>
+                                <div><span class="font-semibold">Patrocinio Institucional:</span> Otorgar un endoso
+                                    oficial que legitime y respalde el evento.</div>
+                            </li>
+                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🌍</span>
+                                <div><span class="font-semibold">Desarrollo Regional:</span> Demostrar un compromiso con
+                                    el desarrollo equilibrado y descentralizado del país.</div>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+
+                <div id="cont-personas" class=" max-w-5xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
+                        <h3 class="text-2xl font-bold text-[#FFD700] mb-4">Estas son las personas que han donado
+                            para lograr el FNB2025</h3>
+                        <p class="text-gray-600 text-xl mb-6">Quienes creen en este proyecto han apoyado su realización
+                            de distintas formas,
+                            pese a no pertenecer formalmente a alguna de las organizaciones previamente listadas.</p>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left">
+                                <thead class="bg-[#4A45B0]/10 text-[#4A45B0]">
+                                    <tr>
+                                        <th class="p-3">Método</th>
+                                        <th class="p-3">Nombre de la persona</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="donations-grid">
+                                    <!-- Se agregan las donaciones con JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <section id="unete" class="bg-white py-16 md:py-24">
             <div class="container mx-auto px-6">
                 <div class="text-center max-w-3xl mx-auto mb-12">
                     <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Colabora con Nosotros</h2>
@@ -389,7 +532,8 @@
                     <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
                         <h3 class="text-2xl font-bold text-[#E567C7] mb-4">Habilite Políticas Públicas y Fomente el
                             Progreso</h3>
-                        <p class="text-gray-600 text-xl mb-6">Solicitamos un apoyo que va más allá de lo financiero: gestión,
+                        <p class="text-gray-600 text-xl mb-6">Solicitamos un apoyo que va más allá de lo financiero:
+                            gestión,
                             patrocinio y alineación con políticas públicas. Su respaldo puede acelerar la implementación
                             de soluciones de movilidad, cumplir promesas electorales y responder a demandas ciudadanas
                             concretas como el proyecto de Avenida España.</p>
@@ -421,7 +565,8 @@
         <div class="container mx-auto px-6 py-10 text-center">
             <h3 class="text-2xl font-bold mb-4">Contáctenos</h3>
             <p class="mb-2 text-xt">Estamos listos para conversar sobre cómo podemos colaborar.</p>
-            <p class="font-semibold text-[#E567C7] mb-6"><a href="mailto:equipo@andeschileong.cl">equipo@andeschileong.cl</a></p>
+            <p class="font-semibold text-[#E567C7] mb-6"><a
+                    href="mailto:equipo@andeschileong.cl">equipo@andeschileong.cl</a></p>
             <div class="flex justify-center space-x-8 items-center">
                 <p class="font-bold flex items-center">Organizan:</p>
                 <span><a href="https://andeschileong.cl">Andes Chile ONG</a></span>
@@ -488,117 +633,115 @@
                 commissionsGrid.appendChild(div);
             });
 
-            // Placeholder for Mesa Nacional Ciclista Organizations
-            // Updated placeholder colors to match the new palette
+            // Organizaciones de la Mesa Nacional Ciclista
             const organizationsData = [
                 {
-                    name: "Ciclistas Urbanos Hospital San José",
-                    logo: "imgs/orgs/ciclistas_hospital_san_jose.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Andes Chile ONG",
-                    logo: "imgs/orgs/andeschile ong.png",
-                    city: "Valparaíso"
-                },
-                {
-                    name: "Club Social, Cunltural y Deportivo Ciclolumpen",
-                    logo: "imgs/orgs/ciclolumpen.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Cicleayque",
-                    logo: "imgs/orgs/Cicleayque.jpg",
-                    city: "Coyhaique"
-                },
-                {
-                    name: "Cicletada de las niñas",
-                    logo: "imgs/orgs/cicletadadelasninas.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Club Deportivo Guayakanes",
-                    logo: "imgs/orgs/Club Deportivo Guayakanes.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Cleterxs Talca",
-                    logo: "imgs/orgs/cleterxstalca.jpg",
-                    city: "Talca"
-                },
-                {
-                    name: "Colectivo Pedalea Autonomía",
-                    logo: "imgs/orgs/colectivo pedalea autonomia-antofagasta.jpg",
-                    city: "Antofagasta"
-                },
-                {
-                    name: "Colectivo Bioenergía",
-                    logo: "imgs/orgs/BIOENERGIA-rancagua.png",
-                    city: "Rancagua"
-                },
-                {
-                    name: "Curicó Pedalea",
-                    logo: "imgs/orgs/curicopedalea.jpeg",
-                    city: "Curicó"
-                },
-                {
-                    name: "Educleta",
-                    logo: "imgs/orgs/educleta.png",
-                    city: "Santiago"
-                },
-                {
-                    name: "Fundación Cicloactiva",
-                    logo: "imgs/orgs/Fundación Cicloactiva Valdivia.jpg",
-                    city: "Valdivia"
-                },
-                {
                     name: "Fundación Pedalea Ciclismo Urbano",
-                    logo: "imgs/orgs/fundacionpedalea.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Indepecleta",
-                    logo: "imgs/orgs/indepecleta.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Koncleta",
-                    logo: "imgs/orgs/koncleta_.jpg",
-                    city: "Biobío"
-                },
-                {
-                    name: "La Quinta Pedalea",
-                    logo: "imgs/orgs/laquintapedalea.jpg",
-                    city: "Villa Alemana"
-                },
-                {
-                    name: "Mesa Movilidad Renca",
-                    logo: "imgs/orgs/mesa_movilidad_renca.jpg",
-                    city: "Renca"
-                },
-                {
-                    name: "Movimiento Furiosos Ciclistas",
-                    logo: "imgs/orgs/MFC Santiago.jpg",
+                    logo: "imgs/mesa/fundacionpedalea.jpg",
                     city: "Santiago"
                 },
                 {
                     name: "Movimiento Lluviosos Ciclistas",
-                    logo: "imgs/orgs/LLUVIOSXS-CICLISTAS.jpg",
+                    logo: "imgs/mesa/LLUVIOSXS-CICLISTAS.jpg",
                     city: "Puerto Montt"
                 },
                 {
-                    name: "Pedal Autónomo",
-                    logo: "imgs/orgs/pedal autonomo.jpg",
-                    city: "Concepción"
+                    name: "Andes Chile ONG",
+                    logo: "imgs/mesa/andeschile ong.png",
+                    city: "Valparaíso"
+                },
+                {
+                    name: "Colectivo Bioenergía",
+                    logo: "imgs/mesa/BIOENERGIA-rancagua.png",
+                    city: "Rancagua"
+                },
+                {
+                    name: "Colectivo Pedalea Autonomía",
+                    logo: "imgs/mesa/colectivo pedalea autonomia-antofagasta.jpg",
+                    city: "Antofagasta"
+                },
+                {
+                    name: "Indepecleta",
+                    logo: "imgs/mesa/indepecleta.jpg",
+                    city: "Santiago"
                 },
                 {
                     name: "Ruidosas Bio Bio",
-                    logo: "imgs/orgs/ruidosasbiobio.jpg",
+                    logo: "imgs/mesa/ruidosasbiobio.jpg",
                     city: "Concepción"
+                },
+                {
+                    name: "La Quinta Pedalea",
+                    logo: "imgs/mesa/laquintapedalea.jpg",
+                    city: "Villa Alemana"
+                },
+                {
+                    name: "Cicleayque",
+                    logo: "imgs/mesa/Cicleayque.jpg",
+                    city: "Coyhaique"
+                },
+                {
+                    name: "Cleterxs Talca",
+                    logo: "imgs/mesa/cleterxstalca.jpg",
+                    city: "Talca"
+                },
+                {
+                    name: "Ciclistas Urbanos Hospital San José",
+                    logo: "imgs/mesa/ciclistas_hospital_san_jose.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Koncleta",
+                    logo: "imgs/mesa/koncleta_.jpg",
+                    city: "Biobío"
+                },
+                {
+                    name: "Fundación Cicloactiva",
+                    logo: "imgs/mesa/Fundación Cicloactiva Valdivia.jpg",
+                    city: "Valdivia"
+                },
+                {
+                    name: "Curicó Pedalea",
+                    logo: "imgs/mesa/curicopedalea.jpeg",
+                    city: "Curicó"
+                },
+                {
+                    name: "Educleta",
+                    logo: "imgs/mesa/educleta.png",
+                    city: "Santiago"
+                },
+                {
+                    name: "Club Social, Cunltural y Deportivo Ciclolumpen",
+                    logo: "imgs/mesa/ciclolumpen.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Club Deportivo Guayakanes",
+                    logo: "imgs/mesa/Club Deportivo Guayakanes.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Mesa Movilidad Renca",
+                    logo: "imgs/mesa/mesa_movilidad_renca.jpg",
+                    city: "Renca"
+                },
+                {
+                    name: "Movimiento Furiosos Ciclistas",
+                    logo: "imgs/mesa/MFC Santiago.jpg",
+                    city: "Santiago"
+                },
+                {
+                    name: "Pedal Autónomo",
+                    logo: "imgs/mesa/pedal autonomo.jpg",
+                    city: "Concepción"
+                },
+                {
+                    name: "Cicletada de las niñas",
+                    logo: "imgs/mesa/cicletadadelasninas.jpg",
+                    city: "Santiago"
                 }
             ];
-
-            const organizationsGrid = document.getElementById('organizations-grid');
+            const organizationsGrid = document.getElementById('mesa-organizations-grid');
             organizationsData.forEach(org => {
                 const div = document.createElement('div');
                 div.className = 'bg-white p-2 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
@@ -610,6 +753,24 @@
                 organizationsGrid.appendChild(div);
             });
 
+            const otrasOrgasData = [
+                {
+                    name: "Fabulosos Ciclistas Porteños",
+                    logo: "imgs/orgas/fabulosos_porteños.png",
+                    city: "Valparaíso"
+                }
+            ]
+            const otrasGrid = document.getElementById('organizations-grid');
+            otrasOrgasData.forEach(org => {
+                const div = document.createElement('div');
+                div.className = 'bg-white p-2 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
+                div.innerHTML = `
+                    <img src="${org.logo}" alt="Logo ${org.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
+                    <h4 class="font text-lg text-[#4A45B0]">${org.name}</h4>
+                    <p class="font text-sm text-[#4A45B0]">${org.city}</p>
+                `;
+                otrasGrid.appendChild(div);
+            });
 
             const impactData = {
                 labels: ['Social', 'Ambiental', 'Economico', 'Politico'],
@@ -665,7 +826,6 @@
                         if (chartElement.length) {
                             const index = chartElement[0].index;
                             const key = impactData.labels[index].toLowerCase();
-                            console.log(key)
                             const info = impactInfo[key];
                             impactTitle.textContent = info.title;
                             impactText.textContent = info.text;
@@ -677,6 +837,31 @@
                 }
             });
 
+            /* Para el bloque de organizaciones */
+            const btnMesa = document.getElementById('btn-mesa');
+            const btnOrgas = document.getElementById('btn-orgas');
+            const contentMesa = document.getElementById('content-mesa');
+            const contentOrgas = document.getElementById('content-orgas');
+
+            btnMesa.addEventListener('click', () => {
+                btnMesa.classList.add('active');
+                btnMesa.classList.remove('inactive');
+                btnOrgas.classList.add('inactive');
+                btnOrgas.classList.remove('active');
+                contentMesa.classList.remove('hidden');
+                contentOrgas.classList.add('hidden');
+            });
+
+            btnOrgas.addEventListener('click', () => {
+                btnOrgas.classList.add('active');
+                btnOrgas.classList.remove('inactive');
+                btnMesa.classList.add('inactive');
+                btnMesa.classList.remove('active');
+                contentOrgas.classList.remove('hidden');
+                contentMesa.classList.add('hidden');
+            });
+
+            /* Para el bloque de colaboración */
             const btnEmpresas = document.getElementById('btn-empresas');
             const btnPoliticos = document.getElementById('btn-politicos');
             const contentEmpresas = document.getElementById('content-empresas');
@@ -699,6 +884,79 @@
                 contentPoliticos.classList.remove('hidden');
                 contentEmpresas.classList.add('hidden');
             });
+
+            /* Donaciones recibidas de personas */
+            const donations = [
+                {
+                    name: "Andrés Valenzuela",
+                    method: "Donación"
+                },
+                {
+                    name: "Francisco Gorziglia",
+                    method: "Donación"
+                },
+            ]
+            const donaGrid = document.getElementById('donations-grid');
+            donations.forEach(person => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-b';
+                tr.innerHTML = `
+                    <td class="p-3 font-semibold">${person.method}</td>
+                    <td class="p-3">${person.name}</td>
+                `;
+                donaGrid.appendChild(tr);
+            });
+
+            /* Para el bloque de colaboradores actuales */
+            const btnEmpresasActual = document.getElementById('btn-empresas-act');
+            const btnPoliticosActual = document.getElementById('btn-politicos-act');
+            const btnPersonasActual = document.getElementById('btn-personas-act');
+            const contEmpresas = document.getElementById('cont-empresas');
+            const contPoliticos = document.getElementById('cont-politicos');
+            const contPersonas = document.getElementById('cont-personas');
+
+            btnEmpresasActual.addEventListener('click', () => {
+                btnEmpresasActual.classList.add('active');
+                btnPoliticosActual.classList.add('inactive');
+                btnPersonasActual.classList.add('inactive');
+
+                btnEmpresasActual.classList.remove('inactive');
+                btnPoliticosActual.classList.remove('active');
+                btnPersonasActual.classList.remove('active');
+
+                contEmpresas.classList.remove('hidden');
+                contPoliticos.classList.add('hidden');
+                contPersonas.classList.add('hidden')
+            });
+
+            btnPoliticosActual.addEventListener('click', () => {
+                btnEmpresasActual.classList.add('inactive');
+                btnPoliticosActual.classList.add('active');
+                btnPersonasActual.classList.add('inactive');
+
+                btnEmpresasActual.classList.remove('active');
+                btnPoliticosActual.classList.remove('inactive');
+                btnPersonasActual.classList.remove('active');
+
+                contEmpresas.classList.add('hidden');
+                contPoliticos.classList.remove('hidden');
+                contPersonas.classList.add('hidden')
+            });
+
+            btnPersonasActual.addEventListener('click', () => {
+                btnEmpresasActual.classList.add('inactive');
+                btnPoliticosActual.classList.add('inactive');
+                btnPersonasActual.classList.add('active');
+
+                btnEmpresasActual.classList.remove('active');
+                btnPoliticosActual.classList.remove('active');
+                btnPersonasActual.classList.remove('inactive');
+
+                contEmpresas.classList.add('hidden');
+                contPoliticos.classList.add('hidden');
+                contPersonas.classList.remove('hidden')
+            });
+
 
             const toggleAvenidaBtn = document.getElementById('toggleAvenida');
             const avenidaAfter = document.getElementById('avenida-after');

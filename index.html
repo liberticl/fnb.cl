@@ -320,8 +320,8 @@
                     <h2 class="text-3xl md:text-4xl font-bold text-[#4A45B0] mb-4">Conoce a los que ya están colaborando
                     </h2>
                     <p class="text-xl text-gray-700 text-balance">En el Foro Nacional de la Bicicleta recibimos apoyo
-                        desde distintos mundos,
-                        entre los que contamos empresas privadas, entidades públicas y personas naturales.</p>
+                        desde distintos mundos, entre los que contamos empresas privadas, entidades públicas y personas
+                        naturales.</p>
                     <div class="mt-8 flex justify-center space-x-2">
                         <button id="btn-empresas-act" class="tab-btn inactive px-6 py-2 font-semibold border-2">
                             Empresas</button>
@@ -333,46 +333,10 @@
                 </div>
 
                 <div id="cont-empresas" class="hidden max-w-5xl mx-auto">
-                    <!-- <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#4CAF50] mb-4">Invierta en Comunidades Sostenibles y
-                            Liderazgo de Marca</h3>
-                        <p class="text-gray-600 text-xl mb-6">Asociarse con el FNB 2025 es una inversión estratégica en
-                            Responsabilidad Social Corporativa, sostenibilidad y desarrollo comunitario. Ofrecemos una
-                            visibilidad de marca significativa y un retorno tangible a través de nuestro impacto
-                            medible.</p>
-                        <div class="overflow-x-auto">
-                            <table class="w-full text-left">
-                                <thead class="bg-[#4A45B0]/10 text-[#4A45B0]">
-                                    <tr>
-                                        <th class="p-3">Nivel de Patrocinio</th>
-                                        <th class="p-3">Beneficios Clave</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b">
-                                        <td class="p-3 font-semibold">Socio Platino</td>
-                                        <td class="p-3">Destacado en todos los materiales, oportunidades de oratoria,
-                                            stand premium, mención en prensa, derechos de denominación de actividades.
-                                        </td>
-                                    </tr>
-                                    <tr class="border-b">
-                                        <td class="p-3 font-semibold">Patrocinador Oro</td>
-                                        <td class="p-3">Presencia prominente, stand de exhibición, participación en
-                                            paneles.</td>
-                                    </tr>
-                                    <tr class="border-b">
-                                        <td class="p-3 font-semibold">Colaborador Plata</td>
-                                        <td class="p-3">Reconocimiento en materiales seleccionados, mención en sitio
-                                            web.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-semibold">Contribuyente Bronce</td>
-                                        <td class="p-3">Reconocimiento en listados generales del sitio web.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div> -->
+                    <div id="empresas-grid"
+                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
+                        <!-- Las empresas se agregan con JS -->
+                    </div>
                 </div>
 
                 <div id="cont-politicos" class="hidden max-w-5xl mx-auto">
@@ -448,42 +412,20 @@
                     <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
                         <h3 class="text-2xl font-bold text-[#4CAF50] mb-4">Invierta en Comunidades Sostenibles y
                             Liderazgo de Marca</h3>
-                        <p class="text-gray-600 text-xl mb-6">Asociarse con el FNB 2025 es una inversión estratégica en
-                            Responsabilidad Social Corporativa, sostenibilidad y desarrollo comunitario. Ofrecemos una
-                            visibilidad de marca significativa y un retorno tangible a través de nuestro impacto
-                            medible.</p>
-                        {{/* <div class="overflow-x-auto">
-                            <table class="w-full text-left">
-                                <thead class="bg-[#4A45B0]/10 text-[#4A45B0]">
-                                    <tr>
-                                        <th class="p-3">Nivel de Patrocinio</th>
-                                        <th class="p-3">Beneficios Clave</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="border-b">
-                                        <td class="p-3 font-semibold">Socio Platino</td>
-                                        <td class="p-3">Destacado en todos los materiales, oportunidades de oratoria,
-                                            stand premium, mención en prensa, derechos de denominación de actividades.
-                                        </td>
-                                    </tr>
-                                    <tr class="border-b">
-                                        <td class="p-3 font-semibold">Patrocinador Oro</td>
-                                        <td class="p-3">Presencia prominente, stand de exhibición, participación en
-                                            paneles.</td>
-                                    </tr>
-                                    <tr class="border-b">
-                                        <td class="p-3 font-semibold">Colaborador Plata</td>
-                                        <td class="p-3">Reconocimiento en materiales seleccionados, mención en sitio
-                                            web.</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="p-3 font-semibold">Contribuyente Bronce</td>
-                                        <td class="p-3">Reconocimiento en listados generales del sitio web.</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div> */}}
+                        <p class="text-gray-600 text-xl mb-6">Apoyar el Foro Nacional de la Bicicleta 2025 es una
+                            decisión estratégica de inversión en sostenibilidad, responsabilidad social y desarrollo
+                            comunitario a nivel nacional.</p>
+                        <p class="text-gray-600 text-xl mb-6">Este encuentro es una plataforma de alto impacto donde
+                            confluyen instituciones públicas, organizaciones ciudadanas, expertos en movilidad y
+                            comunidades de todo Chile. Participar con tu empresa permite generar visibilidad
+                            significativa, conectar con públicos comprometidos y demostrar liderazgo en iniciativas que
+                            mejoran la calidad de vida en nuestras ciudades.
+                        </p>
+                        <p class="text-gray-600 text-xl mb-6">Al colaborar con el FNB 2025, tu organización se vincula a
+                            un evento de alcance nacional que promueve soluciones reales para una movilidad activa,
+                            saludable y sostenible. Esta es una oportunidad concreta para reforzar el compromiso con el
+                            bienestar social, fortalecer su reputación corporativa y obtener un retorno tangible a
+                            través de acciones con impacto medible.</p>
                     </div>
                 </div>
 
@@ -850,6 +792,29 @@
                     <td class="p-3">${person.name}</td>
                 `;
                 donaGrid.appendChild(tr);
+            });
+
+            /* Aportes de empresas */
+            const empresas = [
+                /*  {
+                    name: "Revista Pedalea",
+                    method: "Media Partner",
+                    logo: "imgs/emp/Logotipo.pedalea.fondo_.blanco.png",
+                    url: "https://revistapedalea.com/"
+                },  */
+            ]
+            const empresaGrid = document.getElementById('empresas-grid');
+            empresas.forEach(ent => {
+                const div = document.createElement('div');
+                div.className = 'bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
+                div.innerHTML = `
+                    <a href="${ent.url}" target="_blank" class="flex flex-col items-center text-center">
+                        <img src="${ent.logo}" alt="Logo ${ent.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
+                        <h4 class="font text-lg text-[#4A45B0]">${ent.name}</h4>
+                        <p class="font text-sm text-[#4A45B0]">${ent.method}</p>
+                    </a>
+                `;
+                empresaGrid.appendChild(div);
             });
 
             /* Para el bloque de colaboradores actuales */

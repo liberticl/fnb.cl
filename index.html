@@ -4,21 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Foro Nacional de la Bicicleta 2025</title>
+    <title>FNB 2025</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Custom Brand Softened V3 (Primary Accent Pink: #E567C7, Secondary Accent Green: #4CAF50, Primary Text/Bold Softer Dark Blue: #4A45B0, Call-to-Action Softer Yellow: #FFEA80, Background Base: #F7F7F7, Dark Contrast: #212121) -->
-    <!-- Application Structure Plan: The SPA is designed as a narrative-driven interactive pitch deck. It flows from a high-level vision to a concrete action plan and a tailored call to action. The structure is thematic: 1. Hero (Immediate Hook with structural background lines), 2. The Vision (Core Ideas), 3. The Opportunity (Context & Urgency, with an interactive timeline), 4. The Action Plan (Featuring the tangible 'Avenida España' project and an interactive impact chart), 5. The Team (Building Credibility), 6. Organizations (Highlighting key partners), 7. The Collaboration (A dual-tabbed call-to-action for companies and politicians). This structure was chosen to guide the user through a compelling story of need, opportunity, and solution, making it more persuasive than a simple report summary. -->
-    <!-- Visualization & Content Choices: 
-        - Report Info: History of FNB. Goal: Show resilience. Viz: Interactive Timeline (HTML/CSS/JS). Interaction: Click to reveal text. Justification: More engaging than a text block, frames the 'hiatus' positively.
-        - Report Info: Project Impacts (Social, Env, Econ, Political). Goal: Compare value propositions. Viz: Donut Chart (Chart.js/Canvas). Interaction: Hover on a segment to update a detailed text block. Justification: Visually summarizes the multifaceted value and encourages exploration.
-        - Report Info: Avenida España Goal. Goal: Inform & Inspire. Viz: Before/After toggle (HTML/CSS/JS). Interaction: Button click. Justification: Makes the abstract goal tangible and visually compelling.
-        - Report Info: Collaboration types. Goal: Organize & Inform. Viz: Tabbed Content (HTML/CSS/JS). Interaction: Button click. Justification: Tailors the pitch to two distinct audiences (private/public) in a clean, organized manner.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Urbanist', sans-serif;
@@ -126,7 +117,7 @@
     <main>
         <section id="hero" class="bg-[#F7F7F7] py-20 relative overflow-hidden">
 
-            <div class="absolute inset-0 z-0 opacity-20"> <!-- Opacity adjusted for visibility -->
+            <div class="absolute inset-0 z-0 opacity-20">
                 <div
                     class="absolute top-1/2 left-1/2 w-[140vw] h-10 bg-[#FFEA80] -translate-x-1/4 -translate-y-10 rotate-45">
                 </div>
@@ -143,21 +134,8 @@
                 <p class="text-xl md:text-2xl text-[#212121] mb-8 text-balance">
                     De ciudades pendientes a ciclo-amigables<br>
                     30 de Octubre - 02 de Noviembre<br>
-                    Valparaíso, Chile 2015
+                    Valparaíso, Chile 2025
                 </p>
-
-                <!-- <div class="flex justify-center items-center space-x-4 text-[#4A45B0]">
-                    <span class="text-3xl">|</span>
-                    <span class="text-2xl">🚲</span>
-                    <span class="text-lg font-semibold">Movilidad Sostenible</span>
-                    <span class="text-3xl">|</span>
-                    <span class="text-2xl">🤝</span>
-                    <span class="text-lg font-semibold">Comunidad Activa</span>
-                    <span class="text-3xl">|</span>
-                    <span class="text-xl">📈</span>
-                    <span class="text-lg font-semibold">Desarrollo Urbano</span>
-                    <span class="text-3xl">|</span>
-                </div> -->
             </div>
         </section>
 
@@ -201,7 +179,7 @@
                     <div>
                         <h3 class="text-2xl font-bold text-[#4A45B0] mb-6">La Trayectoria del Foro</h3>
                         <div id="timeline" class="relative pl-8">
-                            <!-- Timeline items will be injected by JS -->
+                            <!-- Timeline se agrega con JS -->
                         </div>
                     </div>
                     <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
@@ -324,29 +302,10 @@
                     <p class="text-xl text-gray-700 text-balance">
                         El Foro Nacional de la Bicicleta existe porque distintas organizaciones a nivel nacional y local
                         creen en este proyecto colectivo y colaboran desde sus espacios y conocimientos a que podamos
-                        realizar
-                        esta nueva versión.
+                        realizar esta nueva versión.
                     </p>
                 </div>
-                <div class="mt-8 flex justify-center space-x-2">
-                    <button id="btn-mesa" class="tab-btn active px-6 py-2 font-semibold border-2">
-                        Mesa Nacional Ciclista</button>
-                    <button id="btn-orgas" class="tab-btn inactive px-6 py-2 font-semibold border-2">
-                        Otras Organizaciones</button>
-                </div>
-                <br><br>
-                <div id="content-mesa" class="max-w-5xl mx-auto">
-                    <!-- <div class="text-center max-w-3xl mx-auto mb-12">
-                        <p class="text-xl text-gray-700 text-balance">La Mesa Nacional Ciclista agrupa a diversas
-                            organizaciones comprometidas con la promoción de la bicicleta y la movilidad sostenible en
-                            Chile. Su fuerza radica en la colaboración y el trabajo conjunto.</p>
-                    </div> -->
-                    <div id="mesa-organizations-grid"
-                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
-                        <!-- Organizations will be injected by JS -->
-                    </div>
-                </div>
-                <div id="content-orgas" class="hidden max-w-5xl mx-auto">
+                <div id="content-orgas" class="max-w-5xl mx-auto">
                     <div id="organizations-grid"
                         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 max-w-6xl mx-auto">
                         <!-- Organizations will be injected by JS -->
@@ -467,7 +426,7 @@
                             </table>
                         </div>
                     </div>
-            </div>
+                </div>
         </section>
 
         <section id="unete" class="bg-white py-16 md:py-24">
@@ -493,7 +452,7 @@
                             Responsabilidad Social Corporativa, sostenibilidad y desarrollo comunitario. Ofrecemos una
                             visibilidad de marca significativa y un retorno tangible a través de nuestro impacto
                             medible.</p>
-                        <div class="overflow-x-auto">
+                        {{/* <div class="overflow-x-auto">
                             <table class="w-full text-left">
                                 <thead class="bg-[#4A45B0]/10 text-[#4A45B0]">
                                     <tr>
@@ -524,7 +483,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
+                        </div> */}}
                     </div>
                 </div>
 
@@ -637,139 +596,149 @@
             const organizationsData = [
                 {
                     name: "Fundación Pedalea Ciclismo Urbano",
-                    logo: "imgs/mesa/fundacionpedalea.jpg",
-                    city: "Santiago"
+                    logo: "imgs/orgas/fundacionpedalea.jpg",
+                    city: "Santiago",
+                    url: "https://www.pedaleaciclismourbano.org/"
                 },
                 {
                     name: "Movimiento Lluviosos Ciclistas",
-                    logo: "imgs/mesa/LLUVIOSXS-CICLISTAS.jpg",
-                    city: "Puerto Montt"
+                    logo: "imgs/orgas/LLUVIOSXS-CICLISTAS.jpg",
+                    city: "Puerto Montt",
+                    url: "https://www.instagram.com/movimiento_lluviosos_ciclistas/"
                 },
                 {
                     name: "Andes Chile ONG",
-                    logo: "imgs/mesa/andeschile ong.png",
-                    city: "Valparaíso"
+                    logo: "imgs/orgas/andeschile ong.png",
+                    city: "Valparaíso",
+                    url: "https://andeschileong.cl/"
                 },
                 {
                     name: "Colectivo Bioenergía",
-                    logo: "imgs/mesa/BIOENERGIA-rancagua.png",
-                    city: "Rancagua"
+                    logo: "imgs/orgas/BIOENERGIA-rancagua.png",
+                    city: "Rancagua",
+                    url: "https://colectivobioenergia.cl/"
                 },
-                {
-                    name: "Colectivo Pedalea Autonomía",
-                    logo: "imgs/mesa/colectivo pedalea autonomia-antofagasta.jpg",
-                    city: "Antofagasta"
-                },
-                {
-                    name: "Indepecleta",
-                    logo: "imgs/mesa/indepecleta.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Ruidosas Bio Bio",
-                    logo: "imgs/mesa/ruidosasbiobio.jpg",
-                    city: "Concepción"
-                },
-                {
-                    name: "La Quinta Pedalea",
-                    logo: "imgs/mesa/laquintapedalea.jpg",
-                    city: "Villa Alemana"
-                },
-                {
-                    name: "Cicleayque",
-                    logo: "imgs/mesa/Cicleayque.jpg",
-                    city: "Coyhaique"
-                },
-                {
-                    name: "Cleterxs Talca",
-                    logo: "imgs/mesa/cleterxstalca.jpg",
-                    city: "Talca"
-                },
-                {
-                    name: "Ciclistas Urbanos Hospital San José",
-                    logo: "imgs/mesa/ciclistas_hospital_san_jose.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Koncleta",
-                    logo: "imgs/mesa/koncleta_.jpg",
-                    city: "Biobío"
-                },
-                {
-                    name: "Fundación Cicloactiva",
-                    logo: "imgs/mesa/Fundación Cicloactiva Valdivia.jpg",
-                    city: "Valdivia"
-                },
-                {
-                    name: "Curicó Pedalea",
-                    logo: "imgs/mesa/curicopedalea.jpeg",
-                    city: "Curicó"
-                },
-                {
-                    name: "Educleta",
-                    logo: "imgs/mesa/educleta.png",
-                    city: "Santiago"
-                },
-                {
-                    name: "Club Social, Cunltural y Deportivo Ciclolumpen",
-                    logo: "imgs/mesa/ciclolumpen.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Club Deportivo Guayakanes",
-                    logo: "imgs/mesa/Club Deportivo Guayakanes.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Mesa Movilidad Renca",
-                    logo: "imgs/mesa/mesa_movilidad_renca.jpg",
-                    city: "Renca"
-                },
-                {
-                    name: "Movimiento Furiosos Ciclistas",
-                    logo: "imgs/mesa/MFC Santiago.jpg",
-                    city: "Santiago"
-                },
-                {
-                    name: "Pedal Autónomo",
-                    logo: "imgs/mesa/pedal autonomo.jpg",
-                    city: "Concepción"
-                },
-                {
-                    name: "Cicletada de las niñas",
-                    logo: "imgs/mesa/cicletadadelasninas.jpg",
-                    city: "Santiago"
-                }
-            ];
-            const organizationsGrid = document.getElementById('mesa-organizations-grid');
-            organizationsData.forEach(org => {
-                const div = document.createElement('div');
-                div.className = 'bg-white p-2 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
-                div.innerHTML = `
-                    <img src="${org.logo}" alt="Logo ${org.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
-                    <h4 class="font text-lg text-[#4A45B0]">${org.name}</h4>
-                    <p class="font text-sm text-[#4A45B0]">${org.city}</p>
-                `;
-                organizationsGrid.appendChild(div);
-            });
-
-            const otrasOrgasData = [
                 {
                     name: "Fabulosos Ciclistas Porteños",
                     logo: "imgs/orgas/fabulosos_porteños.png",
-                    city: "Valparaíso"
+                    city: "Valparaíso",
+                    url: "https://www.instagram.com/mfc_valpo/"
+                },
+                {
+                    name: "Colectivo Pedalea Autonomía",
+                    logo: "imgs/orgas/colectivo pedalea autonomia-antofagasta.jpg",
+                    city: "Antofagasta",
+                    url: "https://www.instagram.com/colectivo.pedalea.autonomia/"
+                },
+                {
+                    name: "Indepecleta",
+                    logo: "imgs/orgas/indepecleta.jpg",
+                    city: "Santiago",
+                    url: "https://indepecleta.cl/"
+                },
+                {
+                    name: "Ruidosas Bio Bio",
+                    logo: "imgs/orgas/ruidosasbiobio.jpg",
+                    city: "Concepción",
+                    url: "https://www.instagram.com/ruidosasbiobio/"
+                },
+                {
+                    name: "La Quinta Pedalea",
+                    logo: "imgs/orgas/laquintapedalea.jpg",
+                    city: "Villa Alemana",
+                    url: "https://www.instagram.com/laquintapedalea/"
+                },
+                {
+                    name: "Cicleayque",
+                    logo: "imgs/orgas/Cicleayque.jpg",
+                    city: "Coyhaique",
+                    url: "https://www.cicleayque.org/"
+                },
+                {
+                    name: "Cleterxs Talca",
+                    logo: "imgs/orgas/cleterxstalca.jpg",
+                    city: "Talca",
+                    url: "https://www.instagram.com/cleterxstalca/"
+                },
+                {
+                    name: "Ciclistas Urbanos Hospital San José",
+                    logo: "imgs/orgas/ciclistas_hospital_san_jose.jpg",
+                    city: "Santiago",
+                    url: "https://www.instagram.com/ciclistas_hospital_san_jose/"
+                },
+                {
+                    name: "Koncleta",
+                    logo: "imgs/orgas/koncleta_.jpg",
+                    city: "Biobío",
+                    url: "https://www.instagram.com/koncleta_/"
+                },
+                {
+                    name: "Fundación Cicloactiva",
+                    logo: "imgs/orgas/Fundación Cicloactiva Valdivia.jpg",
+                    city: "Valdivia",
+                    url: "https://www.instagram.com/cicloactiva/"
+                },
+                {
+                    name: "Curicó Pedalea",
+                    logo: "imgs/orgas/curicopedalea.jpeg",
+                    city: "Curicó",
+                    url: "https://www.instagram.com/curicopedalea/"
+                },
+                {
+                    name: "Educleta",
+                    logo: "imgs/orgas/educleta.png",
+                    city: "Santiago",
+                    url: "https://educleta.cl/"
+                },
+                {
+                    name: "Club Social, Cunltural y Deportivo Ciclolumpen",
+                    logo: "imgs/orgas/ciclolumpen.jpg",
+                    city: "Santiago",
+                    url: "https://ciclolumpen.cl/"
+                },
+                {
+                    name: "Club Deportivo Guayakanes",
+                    logo: "imgs/orgas/Club Deportivo Guayakanes.jpg",
+                    city: "Santiago",
+                    url: ""
+                },
+                {
+                    name: "Mesa Movilidad Renca",
+                    logo: "imgs/orgas/mesa_movilidad_renca.jpg",
+                    city: "Renca",
+                    url: "https://www.instagram.com/mesa_movilidad_renca/"
+                },
+                {
+                    name: "Movimiento Furiosos Ciclistas",
+                    logo: "imgs/orgas/MFC Santiago.jpg",
+                    city: "Santiago",
+                    url: "https://www.instagram.com/movimientofuriososciclistas/"
+                },
+                {
+                    name: "Pedal Autónomo",
+                    logo: "imgs/orgas/pedal autonomo.jpg",
+                    city: "Concepción",
+                    url: "https://pedalautonomo.org/"
+                },
+                {
+                    name: "Cicletada de las niñas",
+                    logo: "imgs/orgas/cicletadadelasninas.jpg",
+                    city: "Santiago",
+                    url: "https://www.instagram.com/cicletadadelasninas/"
                 }
             ]
-            const otrasGrid = document.getElementById('organizations-grid');
-            otrasOrgasData.forEach(org => {
+            const organizationsGrid = document.getElementById('organizations-grid');
+            organizationsData.forEach(org => {
                 const div = document.createElement('div');
-                div.className = 'bg-white p-2 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
+                div.className = 'bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
                 div.innerHTML = `
-                    <img src="${org.logo}" alt="Logo ${org.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
-                    <h4 class="font text-lg text-[#4A45B0]">${org.name}</h4>
-                    <p class="font text-sm text-[#4A45B0]">${org.city}</p>
+                    <a href="${org.url}" target="_blank" class="flex flex-col items-center text-center">
+                        <img src="${org.logo}" alt="Logo ${org.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
+                        <h4 class="font text-lg text-[#4A45B0]">${org.name}</h4>
+                        <p class="font text-sm text-[#4A45B0]">${org.city}</p>
+                    </a>
                 `;
-                otrasGrid.appendChild(div);
+                organizationsGrid.appendChild(div);
             });
 
             const impactData = {
@@ -835,30 +804,6 @@
                         }
                     }
                 }
-            });
-
-            /* Para el bloque de organizaciones */
-            const btnMesa = document.getElementById('btn-mesa');
-            const btnOrgas = document.getElementById('btn-orgas');
-            const contentMesa = document.getElementById('content-mesa');
-            const contentOrgas = document.getElementById('content-orgas');
-
-            btnMesa.addEventListener('click', () => {
-                btnMesa.classList.add('active');
-                btnMesa.classList.remove('inactive');
-                btnOrgas.classList.add('inactive');
-                btnOrgas.classList.remove('active');
-                contentMesa.classList.remove('hidden');
-                contentOrgas.classList.add('hidden');
-            });
-
-            btnOrgas.addEventListener('click', () => {
-                btnOrgas.classList.add('active');
-                btnOrgas.classList.remove('inactive');
-                btnMesa.classList.add('inactive');
-                btnMesa.classList.remove('active');
-                contentOrgas.classList.remove('hidden');
-                contentMesa.classList.add('hidden');
             });
 
             /* Para el bloque de colaboración */

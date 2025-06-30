@@ -77,30 +77,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-    /* Para el bloque de colaboración */
-    const btnEmpresas = document.getElementById('btn-empresas');
-    const btnPoliticos = document.getElementById('btn-politicos');
-    const contentEmpresas = document.getElementById('content-empresas');
-    const contentPoliticos = document.getElementById('content-politicos');
-
-    btnEmpresas.addEventListener('click', () => {
-        btnEmpresas.classList.add('active');
-        btnEmpresas.classList.remove('inactive');
-        btnPoliticos.classList.add('inactive');
-        btnPoliticos.classList.remove('active');
-        contentEmpresas.classList.remove('hidden');
-        contentPoliticos.classList.add('hidden');
-    });
-
-    btnPoliticos.addEventListener('click', () => {
-        btnPoliticos.classList.add('active');
-        btnPoliticos.classList.remove('inactive');
-        btnEmpresas.classList.add('inactive');
-        btnEmpresas.classList.remove('active');
-        contentPoliticos.classList.remove('hidden');
-        contentEmpresas.classList.add('hidden');
-    });
-
     /* Donaciones recibidas de personas */
     const donaGrid = document.getElementById('donations-grid');
     donations.forEach(person => {
@@ -178,6 +154,30 @@ document.addEventListener('DOMContentLoaded', function () {
         contPersonas.classList.remove('hidden')
     });
 
+
+    /* Para el bloque únete */
+    const btnEmpresas = document.getElementById('btn-empresas');
+    const btnPoliticos = document.getElementById('btn-politicos');
+    const contentEmpresas = document.getElementById('content-empresas');
+    const contentPoliticos = document.getElementById('content-politicos');
+
+    btnEmpresas.addEventListener('click', () => {
+        btnEmpresas.classList.add('active');
+        btnEmpresas.classList.remove('inactive');
+        btnPoliticos.classList.add('inactive');
+        btnPoliticos.classList.remove('active');
+        contentEmpresas.classList.remove('hidden');
+        contentPoliticos.classList.add('hidden');
+    });
+
+    btnPoliticos.addEventListener('click', () => {
+        btnPoliticos.classList.add('active');
+        btnPoliticos.classList.remove('inactive');
+        btnEmpresas.classList.add('inactive');
+        btnEmpresas.classList.remove('active');
+        contentPoliticos.classList.remove('hidden');
+        contentEmpresas.classList.add('hidden');
+    });
 
     // const toggleAvenidaBtn = document.getElementById('toggleAvenida');
     // const avenidaAfter = document.getElementById('avenida-after');

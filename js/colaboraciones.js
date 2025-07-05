@@ -22,4 +22,10 @@ export const empresas = [
         logo: "imgs/emp/elplan.png",
         url: "https://elplan.cl/"
     },
+    {
+        name: "Quiltro",
+        method: "Eco Partner",
+        logo: "imgs/emp/quiltro.jpg",
+        url: "https://www.instagram.com/quiltro.costura/"
+    },
 ]

@@ -1,6 +1,6 @@
 import { timeline, commissions, impactData, impactInfo } from './data.js';
 import { organizations } from './orgas.js';
-import { donations, empresas } from './colaboraciones.js'
+import { donations, empresas, patrocinios } from './colaboraciones.js'
 
 document.addEventListener('DOMContentLoaded', function () {
 
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
         div.className = 'bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
         div.innerHTML = `
                     <a href="${ent.url}" target="_blank" class="flex flex-col items-center text-center">
-                        <img src="${ent.logo}" alt="Logo ${ent.name}" class="h-16 w-16 object-contain mb-2 rounded-full">
+                        <img src="${ent.logo}" alt="Logo ${ent.name}" class="h-24 w-24 object-contain mb-2 rounded-full">
                         <h4 class="font text-lg text-[#4A45B0]">${ent.name}</h4>
                         <p class="font text-sm text-[#4A45B0]">${ent.method}</p>
                     </a>
@@ -104,53 +104,68 @@ document.addEventListener('DOMContentLoaded', function () {
         empresaGrid.appendChild(div);
     });
 
+    /* Patrocinios */
+    const patrocinioGrid = document.getElementById('patrocinios-grid');
+    patrocinios.forEach(ent => {
+        const div = document.createElement('div');
+        div.className = 'bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
+        div.innerHTML = `
+                    <a href="${ent.url}" target="_blank" class="flex flex-col items-center text-center">
+                        <img src="${ent.logo}" alt="Logo ${ent.name}" class="h-32 w-32 object-contain mb-2">
+                        <h4 class="font text-lg text-[#4A45B0]">${ent.name}</h4>
+                        <p class="font text-sm text-[#4A45B0]">${ent.method}</p>
+                    </a>
+                `;
+        patrocinioGrid.appendChild(div);
+    });
+
     /* Para el bloque de colaboradores actuales */
     const btnEmpresasActual = document.getElementById('btn-empresas-act');
-    const btnPoliticosActual = document.getElementById('btn-politicos-act');
+    const btnPatrociniosActual = document.getElementById('btn-patrocinios-act');
     const btnPersonasActual = document.getElementById('btn-personas-act');
     const contEmpresas = document.getElementById('cont-empresas');
-    const contPoliticos = document.getElementById('cont-politicos');
+    const contPatrocinios = document.getElementById('cont-patrocinios');
     const contPersonas = document.getElementById('cont-personas');
 
     btnEmpresasActual.addEventListener('click', () => {
         btnEmpresasActual.classList.add('active');
-        btnPoliticosActual.classList.add('inactive');
+        btnPatrociniosActual.classList.add('inactive');
         btnPersonasActual.classList.add('inactive');
 
         btnEmpresasActual.classList.remove('inactive');
-        btnPoliticosActual.classList.remove('active');
+        btnPatrociniosActual.classList.remove('active');
         btnPersonasActual.classList.remove('active');
 
         contEmpresas.classList.remove('hidden');
-        contPoliticos.classList.add('hidden');
+        contPatrocinios.classList.add('hidden');
         contPersonas.classList.add('hidden')
     });
 
-    btnPoliticosActual.addEventListener('click', () => {
+    btnPatrociniosActual.addEventListener('click', () => {
         btnEmpresasActual.classList.add('inactive');
-        btnPoliticosActual.classList.add('active');
+        btnPatrociniosActual.classList.add('active');
         btnPersonasActual.classList.add('inactive');
 
         btnEmpresasActual.classList.remove('active');
-        btnPoliticosActual.classList.remove('inactive');
+        btnPatrociniosActual.classList.remove('inactive');
         btnPersonasActual.classList.remove('active');
 
         contEmpresas.classList.add('hidden');
-        contPoliticos.classList.remove('hidden');
+        contPatrocinios.classList.remove('hidden');
         contPersonas.classList.add('hidden')
     });
 
     btnPersonasActual.addEventListener('click', () => {
         btnEmpresasActual.classList.add('inactive');
-        btnPoliticosActual.classList.add('inactive');
+        btnPatrociniosActual.classList.add('inactive');
         btnPersonasActual.classList.add('active');
 
         btnEmpresasActual.classList.remove('active');
-        btnPoliticosActual.classList.remove('active');
+        btnPatrociniosActual.classList.remove('active');
         btnPersonasActual.classList.remove('inactive');
 
         contEmpresas.classList.add('hidden');
-        contPoliticos.classList.add('hidden');
+        contPatrocinios.classList.add('hidden');
         contPersonas.classList.remove('hidden')
     });
 

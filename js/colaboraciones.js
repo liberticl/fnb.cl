@@ -29,3 +29,12 @@ export const empresas = [
         url: "https://www.instagram.com/quiltro.costura/"
     },
 ]
+
+export const patrocinios = [
+    {
+        name: "Ilustre Municipalidad de Valparaíso",
+        method: "Patrocinador",
+        logo: "imgs/pub/logo_muni_valpo.png",
+        url: "https://municipalidaddevalparaiso.cl/"
+    },
+]

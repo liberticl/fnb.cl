@@ -260,50 +260,27 @@
                         desde distintos mundos, entre los que contamos empresas privadas, entidades públicas y personas
                         naturales.</p>
                     <div class="mt-8 flex justify-center space-x-2">
-                        <button id="btn-empresas-act" class="tab-btn active px-6 py-2 font-semibold border-2">
+                        <button id="btn-empresas-act" class="tab-btn inactive px-6 py-2 font-semibold border-2">
                             Empresas</button>
-                        <button id="btn-politicos-act" class="tab-btn inactive px-6 py-2 font-semibold border-2">
-                            Actores Políticos</button>
+                        <button id="btn-patrocinios-act" class="tab-btn active px-6 py-2 font-semibold border-2">
+                            Patrocinios</button>
                         <button id="btn-personas-act" class="tab-btn inactive px-6 py-2 font-semibold border-2">
                             Personas Naturales</button>
                     </div>
                 </div>
 
-                <div id="cont-empresas" class="max-w-5xl mx-auto">
+                <div id="cont-empresas" class="hidden max-w-5xl mx-auto">
                     <div id="empresas-grid"
                         class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
                         <!-- Las empresas se agregan con JS -->
                     </div>
                 </div>
 
-                <div id="cont-politicos" class="hidden max-w-5xl mx-auto">
-                    <!-- <div class="bg-white p-8 rounded-xl shadow-lg border-gray-100">
-                        <h3 class="text-2xl font-bold text-[#E567C7] mb-4">Habilite Políticas Públicas y Fomente el
-                            Progreso</h3>
-                        <p class="text-gray-600 text-xl mb-6">Solicitamos un apoyo que va más allá de lo financiero:
-                            gestión,
-                            patrocinio y alineación con políticas públicas. Su respaldo puede acelerar la implementación
-                            de soluciones de movilidad, cumplir promesas electorales y responder a demandas ciudadanas
-                            concretas como el proyecto de Avenida España.</p>
-                        <ul class="space-y-4">
-                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🏛️</span>
-                                <div><span class="font-semibold">Planificación Urbana:</span> Facilitar permisos y
-                                    adoptar las recomendaciones de política del foro.</div>
-                            </li>
-                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">✅</span>
-                                <div><span class="font-semibold">Infraestructura:</span> Asignar recursos para
-                                    infraestructura ciclista y de transporte público.</div>
-                            </li>
-                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🤝</span>
-                                <div><span class="font-semibold">Patrocinio Institucional:</span> Otorgar un endoso
-                                    oficial que legitime y respalde el evento.</div>
-                            </li>
-                            <li class="flex items-start"><span class="text-[#4A45B0] font-bold text-xl mr-3">🌍</span>
-                                <div><span class="font-semibold">Desarrollo Regional:</span> Demostrar un compromiso con
-                                    el desarrollo equilibrado y descentralizado del país.</div>
-                            </li>
-                        </ul>
-                    </div> -->
+                <div id="cont-patrocinios" class="max-w-5xl mx-auto">
+                    <div id="patrocinios-grid"
+                        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                        <!-- Los patrocinios se agregan con JS -->
+                    </div>
                 </div>
 
                 <div id="cont-personas" class="hidden max-w-5xl mx-auto">

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const organizationsGrid = document.getElementById('organizations-grid');
     organizations.forEach(org => {
         const div = document.createElement('div');
-        div.className = 'bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
+        div.className = 'w-52 bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
         div.innerHTML = `
                     <a href="${org.url}" target="_blank" class="flex flex-col items-center text-center">
                         <img src="${org.logo}" alt="Logo ${org.name}" class="h-16 w-16 object-contain mb-2 rounded-full">

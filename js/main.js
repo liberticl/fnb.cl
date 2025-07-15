@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const commissionsGrid = document.getElementById('commissions-grid');
     commissions.forEach(commission => {
         const div = document.createElement('div');
-        div.className = 'bg-white p-6 rounded-xl shadow-md text-center';
+        div.className = 'w-80 bg-white p-6 rounded-xl shadow-md text-center flex flex-col items-center justify-center';
         div.innerHTML = `
                     <span class="text-4xl">${commission.icon}</span>
                     <h4 class="font-bold text-lg mt-3 text-[#4A45B0]">${commission.name}</h4>

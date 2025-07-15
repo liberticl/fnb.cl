@@ -60,6 +60,12 @@ export const organizations = [
         url: "https://www.cicleayque.org/"
     },
     {
+        name: "Bici del Mar",
+        logo: "imgs/orgas/bicidelmar.jpeg",
+        city: "Viña del Mar",
+        url: "https://www.instagram.com/bicidelmar/"
+    },
+    {
         name: "Cleterxs Talca",
         logo: "imgs/orgas/cleterxstalca.jpg",
         city: "Talca",

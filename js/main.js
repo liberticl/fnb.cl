@@ -43,6 +43,16 @@ document.addEventListener('DOMContentLoaded', function () {
         organizationsGrid.appendChild(div);
     });
 
+    /* Botón para ver orgas */
+    const btnVerOrgas = document.getElementById('btn-orgas');
+    const contVerOrgas = document.getElementById('content-orgas')
+
+    btnVerOrgas.addEventListener('click', () => {
+        btnVerOrgas.classList.toggle('active');
+        btnVerOrgas.classList.toggle('inactive');
+        contVerOrgas.classList.toggle('hidden');
+    });
+
 
     const ctx = document.getElementById('impactChart').getContext('2d');
     const impactChart = new Chart(ctx, {

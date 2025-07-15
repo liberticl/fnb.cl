@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const empresaGrid = document.getElementById('empresas-grid');
     empresas.forEach(ent => {
         const div = document.createElement('div');
-        div.className = 'bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
+        div.className = 'w-80 bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
         div.innerHTML = `
                     <a href="${ent.url}" target="_blank" class="flex flex-col items-center text-center">
                         <img src="${ent.logo}" alt="Logo ${ent.name}" class="h-24 w-24 object-contain mb-2 rounded-full">
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const patrocinioGrid = document.getElementById('patrocinios-grid');
     patrocinios.forEach(ent => {
         const div = document.createElement('div');
-        div.className = 'bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
+        div.className = 'w-80 bg-white p-3 rounded-lg shadow-md text-center flex flex-col items-center justify-center';
         div.innerHTML = `
                     <a href="${ent.url}" target="_blank" class="flex flex-col items-center text-center">
                         <img src="${ent.logo}" alt="Logo ${ent.name}" class="h-32 w-32 object-contain mb-2">

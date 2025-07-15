@@ -48,9 +48,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const contVerOrgas = document.getElementById('content-orgas')
 
     btnVerOrgas.addEventListener('click', () => {
-        btnVerOrgas.classList.toggle('active');
-        btnVerOrgas.classList.toggle('inactive');
-        contVerOrgas.classList.toggle('hidden');
+        if (btnVerOrgas.classList.contains('active')) {
+            btnVerOrgas.classList.add('inactive')
+            btnVerOrgas.classList.remove('active')
+            contVerOrgas.classList.add('hidden')
+        } else {
+            btnVerOrgas.classList.add('active')
+            btnVerOrgas.classList.remove('inactive')
+            contVerOrgas.classList.remove('hidden')
+        }
     });
 
 

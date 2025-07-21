@@ -37,4 +37,10 @@ export const patrocinios = [
         logo: "imgs/pub/logo_muni_valpo.png",
         url: "https://municipalidaddevalparaiso.cl/"
     },
+    {
+        name: "EFE Valparaíso",
+        method: "Patrocinador",
+        logo: "imgs/pub/efevalparaiso.svg",
+        url: "https://www.efe.cl/nuestros-servicios/limache-puerto/"
+    },
 ]

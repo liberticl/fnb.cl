@@ -1,21 +1,21 @@
 export const organizations = [
     {
-        name: "Fundación Pedalea Ciclismo Urbano",
-        logo: "imgs/orgas/fundacionpedalea.jpg",
-        city: "Santiago",
-        url: "https://www.pedaleaciclismourbano.org/"
+        name: "Andes Chile ONG",
+        logo: "imgs/orgas/andeschile ong.png",
+        city: "Valparaíso",
+        url: "https://andeschileong.cl/"
     },
-    {
+{
         name: "Movimiento Lluviosos Ciclistas",
         logo: "imgs/orgas/LLUVIOSXS-CICLISTAS.jpg",
         city: "Puerto Montt",
         url: "https://www.instagram.com/movimiento_lluviosos_ciclistas/"
     },
     {
-        name: "Andes Chile ONG",
-        logo: "imgs/orgas/andeschile ong.png",
-        city: "Valparaíso",
-        url: "https://andeschileong.cl/"
+        name: "Fundación Pedalea Ciclismo Urbano",
+        logo: "imgs/orgas/fundacionpedalea.jpg",
+        city: "Santiago",
+        url: "https://www.pedaleaciclismourbano.org/"
     },
     {
         name: "Colectivo Bioenergía",
@@ -28,6 +28,12 @@ export const organizations = [
         logo: "imgs/orgas/fabulosos_porteños.png",
         city: "Valparaíso",
         url: "https://www.instagram.com/mfc_valpo/"
+    },
+    {
+        name: "Yo Quiero Andar En Bicicleta",
+        logo: "imgs/orgas/yoquieroandarenbicicleta.jpg",
+        city: "Santiago",
+        url: "https://www.instagram.com/yoquieroandarenbicicleta/"
     },
     {
         name: "Colectivo Pedalea Autonomía",

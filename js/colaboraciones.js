@@ -23,12 +23,12 @@ export const empresas = [
         logo: "imgs/emp/Logotipo.pedalea.fondo_.blanco.png",
         url: "https://revistapedalea.com/"
     },
-    {
-        name: "El Plan TV",
-        method: "Media Partner",
-        logo: "imgs/emp/elplan.png",
-        url: "https://elplan.cl/"
-    },
+    // {
+    //     name: "El Plan TV",
+    //     method: "Media Partner",
+    //     logo: "imgs/emp/elplan.png",
+    //     url: "https://elplan.cl/"
+    // },
     {
         name: "Quiltro",
         method: "Eco Partner",

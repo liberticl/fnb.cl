@@ -100,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
         tr.className = 'border-b';
         tr.innerHTML = `
                     <td class="p-3 font-semibold">${person.method}</td>
+                    <td class="p-3">${person.type}</td>
                     <td class="p-3">${person.name}</td>
                 `;
         donaGrid.appendChild(tr);

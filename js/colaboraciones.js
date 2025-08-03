@@ -1,11 +1,18 @@
 export const donations = [
     {
         name: "Andrés Valenzuela",
-        method: "Donación"
+        method: "Donación",
+        type: "Donando.cl"
     },
     {
         name: "Francisco Gorziglia",
-        method: "Donación"
+        method: "Donación",
+        type: "Donando.cl"
+    },
+    {
+        name: "Tiare Velasquez",
+        method: "Donación",
+        type: "Michihouse Travels"
     },
 ]
 

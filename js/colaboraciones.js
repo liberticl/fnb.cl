@@ -23,6 +23,12 @@ export const empresas = [
         logo: "imgs/emp/Logotipo.pedalea.fondo_.blanco.png",
         url: "https://revistapedalea.com/"
     },
+    {
+        name: "Arlegui TV",
+        method: "Media Partner",
+        logo: "imgs/emp/arleguitv.jpeg",
+        url: "https://www.instagram.com/arleguitv/"
+    },
     // {
     //     name: "El Plan TV",
     //     method: "Media Partner",

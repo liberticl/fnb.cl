@@ -27,7 +27,7 @@ export const empresas = [
         name: "Arlegui TV",
         method: "Media Partner",
         logo: "imgs/emp/arleguitv.jpeg",
-        url: "https://www.instagram.com/arleguitv/"
+        url: "https://www.arleguitv.com/"
     },
     // {
     //     name: "El Plan TV",

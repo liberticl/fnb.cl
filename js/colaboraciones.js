@@ -56,4 +56,10 @@ export const patrocinios = [
         logo: "imgs/pub/efevalparaiso.svg",
         url: "https://www.efe.cl/nuestros-servicios/limache-puerto/"
     },
+    {
+        name: "PUCV",
+        method: "Patrocinador",
+        logo: "imgs/pub/pucv.png",
+        url: "https://ict.pucv.cl/"
+    },
 ]

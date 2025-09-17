@@ -62,4 +62,10 @@ export const patrocinios = [
         logo: "imgs/pub/pucv.png",
         url: "https://ict.pucv.cl/"
     },
+    {
+        name: "Gobierno Regional de Valparaíso",
+        method: "Patrocinador",
+        logo: "imgs/pub/gore.png",
+        url: "https://www.gobiernovalparaiso.cl/"
+    },
 ]

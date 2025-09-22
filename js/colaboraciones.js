@@ -14,6 +14,11 @@ export const donations = [
         method: "Donación",
         type: "Michihouse Travels"
     },
+    {
+        name: "Pablo Arriagada",
+        method: "Donación",
+        type: "Donando.cl"
+    },
 ]
 
 export const empresas = [

@@ -28,24 +28,40 @@
 <body class="text-[#212121]">
 
     <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center" x-data="{ open: false }">
             <a href="/" class="font-bold text-xl text-[#4A45B0] flex items-center">
                 <img src="../imgs/foro/logo_horizontal.png" alt="Foro Nacional de la Bicicleta"
                     class="h-20 mr-2 rounded-md">
             </a>
             <div class="hidden md:flex space-x-5">
-                <a href="#vision" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Visión</a>
-                <a href="#plan" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">El Plan</a>
-                <a href="#equipo" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Equipo</a>
-                <a href="#organizaciones"
+                <a href="../#vision" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Visión</a>
+                <a href="../#plan" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">El Plan</a>
+                <a href="../#equipo" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Equipo</a>
+                <a href="../#organizaciones"
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Organizaciones</a>
-                <a href="#participan"
+                <a href="../#participan"
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Participan</a>
-                <a href="#unete" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Únete</a>
-                <a href="/anfitriones/" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Anfitriones</a>
+                <a href="../#unete" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Únete</a>
+                <a href="/anfitriones/"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Anfitriones</a>
             </div>
             <a href="https://andeschileong.donando.cl/causa/ForoNacionaldelaBicicleta2025-4655" target="_blank"
-                class="bg-[#FFEA80] text-[#212121] px-6 py-3 rounded-lg font-bold hover:bg-[#FFD700] transition-colors">Donar</a>
+                class="bg-[#FFEA80] text-[#212121] px-6 py-3 rounded-lg font-bold hover:bg-[#FFD700] transition-colors md:ml-4">Donar</a>
+
+            <button @click="open = !open" class="text-[#4A45B0] text-3xl md:hidden ml-4 focus:outline-none">
+                &#8801;
+            </button>
+
+            <div x-show="open" class="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg py-4">
+                <a href="../#vision" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Visión</a>
+                <a href="../#plan" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">El Plan</a>
+                <a href="../#equipo" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Equipo</a>
+                <a href="../#organizaciones"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Organizaciones</a>
+                <a href="../#participan" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Participan</a>
+                <a href="../#unete" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Únete</a>
+                <a href="/anfitriones/" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Anfitriones</a>
+            </div>
         </nav>
     </header>
 

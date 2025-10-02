@@ -24,25 +24,25 @@ export const donations = [
 export const empresas = [
     {
         name: "Revista Pedalea",
-        method: "Media Partner",
+        method: "Partner Comunicacional",
         logo: "imgs/emp/Logotipo.pedalea.fondo_.blanco.png",
         url: "https://revistapedalea.com/"
     },
     {
         name: "Arlegui TV",
-        method: "Media Partner",
+        method: "Partner Comunicacional",
         logo: "imgs/emp/arleguitv.jpeg",
         url: "https://www.arleguitv.com/"
     },
-    // {
-    //     name: "El Plan TV",
-    //     method: "Media Partner",
-    //     logo: "imgs/emp/elplan.png",
-    //     url: "https://elplan.cl/"
-    // },
+    {
+        name: "El Plan TV",
+        method: "Partner Comunicacional",
+        logo: "imgs/emp/elplan.png",
+        url: "https://elplan.cl/"
+    },
     {
         name: "Quiltro",
-        method: "Eco Partner",
+        method: "Partner Ecológico",
         logo: "imgs/emp/quiltro.jpg",
         url: "https://www.instagram.com/quiltro.costura/"
     },

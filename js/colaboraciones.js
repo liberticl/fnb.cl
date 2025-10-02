@@ -46,6 +46,12 @@ export const empresas = [
         logo: "imgs/emp/quiltro.jpg",
         url: "https://www.instagram.com/quiltro.costura/"
     },
+    {
+        name: "Concejalía Lukas Cáceres",
+        method: "Partner de Gestiones",
+        logo: "imgs/emp/lukas_caceres.png",
+        url: "https://linktr.ee/lukas.concejalvalpo2024"
+    },
 ]
 
 export const patrocinios = [

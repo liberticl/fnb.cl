@@ -52,6 +52,12 @@ export const empresas = [
         logo: "imgs/emp/lukas_caceres.png",
         url: "https://linktr.ee/lukas.concejalvalpo2024"
     },
+    {
+        name: "Casa Volante Hostal",
+        method: "Partner de Estadía",
+        logo: "imgs/emp/casa_volante_hostal.png",
+        url: "http://www.casavolantehostal.com/"
+    },
 ]
 
 export const patrocinios = [

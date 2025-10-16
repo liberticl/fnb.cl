@@ -2,7 +2,6 @@
 <html lang="es" class="scroll-smooth">
 
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQJ4KHEGX"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -14,9 +13,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="FNB 2025">
-    <title>Anfitriones FNB 2025</title>
-    <link rel="preload stylesheet" href="../css/main.css" as="style">
-    <script type="module" src="../js/main.js"></script>
+    <title>Programa FNB 2025</title>
+    <link rel="preload stylesheet" href="/css/main.css" as="style">
+    <link rel="preload stylesheet" href="/css/programa.css" as="style">
+    <script type="module" src="/js/main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" type="image/png" href="../imgs/favicon.ico">
@@ -44,7 +44,7 @@
                 <a href="/anfitriones/"
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Anfitriones</a>
                 <a href="/programa/"
-                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Programa</a>
+                    class="nav-link font-semibold text-lg inactive-nav text-[#4A45B0] border-b-2 border-[#4A45B0]">Programa</a>
                 <a href="https://www.cicloamigable.cl/fnb" target="_blank"  class="nav-link font-semibold text-lg inactive-nav hover:text-[#E567C7]">Lugares</a>
             </div>
             <a href="https://andeschileong.donando.cl/causa/ForoNacionaldelaBicicleta2025-4655" target="_blank"
@@ -93,12 +93,15 @@
             </div>
         </section>
 
-        <section id="anfitriones" class="bg-white py-10 md:py-15">
+        <section id="programa-contenido" class="bg-white py-10 md:py-15">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLScb4qhoQabLRIea-FvjH6vWXrCYgjGNlbAvxAjDh4lxf2IdxQ/viewform?embedded=true"
-                        width="100%" height="3411" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+                <div id="loading-message" class="text-center text-lg font-semibold text-[#4A45B0]">
+                    Cargando programa... 🚴‍♀️
+                </div>
+                <div id="schedule-container">
+                    </div>
+                <div id="error-message" class="hidden text-center text-lg font-semibold text-red-600 mt-8">
+                    Hubo un error al cargar el programa. Por favor, inténtalo de nuevo más tarde.
                 </div>
             </div>
         </section>
@@ -114,11 +117,11 @@
                 <p class="font-bold flex items-center">Organizan:</p>
                 <span><a href="https://andeschileong.cl">Andes Chile ONG</a></span>
                 <span><a href="https://mesanacionalciclista.cl">Mesa Nacional Ciclista</a></span>
-                <!--  <img src="imgs/foro/logo_horizontal.png" alt="Logo Foro Nacional de la Bicicleta Compacto"
-                    class="h-25 ml-2 rounded-md">  -->
             </div>
         </div>
     </footer>
-</body>
 
+    <script src="https://unpkg.com/papaparse@5.4.1/papaparse.min.js"></script> 
+    <script src="/js/programa.js"></script> 
+</body>
 </html>

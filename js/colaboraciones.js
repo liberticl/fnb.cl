@@ -19,6 +19,11 @@ export const donations = [
         method: "Donación",
         type: "Donando.cl"
     },
+    {
+        name: "Gonzalo Cancino",
+        method: "Gestiones",
+        type: "-"
+    },
 ]
 
 export const empresas = [

@@ -18,6 +18,7 @@
     <link rel="preload stylesheet" href="/css/main.css" as="style">
     <script type="module" src="/js/main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="icon" type="image/png" href="imgs/favicon.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,16 +56,29 @@
                 &#8801;
             </button>
 
-            <div x-show="open" class="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg py-4">
-                <a href="#vision" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Visión</a>
-                <a href="#plan" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">El Plan</a>
-                <a href="#equipo" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Equipo</a>
-                <a href="#organizaciones"
+            <div x-show="open" @click.away="open = false"
+                class="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg py-4 z-40">
+
+                <a href="#vision" @click="open = false"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Visión</a>
+                <a href="#plan" @click="open = false" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">El
+                    Plan</a>
+                <a href="#equipo" @click="open = false"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Equipo</a>
+                <a href="#organizaciones" @click="open = false"
                     class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Organizaciones</a>
-                <a href="#participan" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Participan</a>
-                <a href="/anfitriones/" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Anfitriones</a>
-                <a href="/programa/" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Programa</a>
-                <a href="https://www.cicloamigable.cl/fnb" target="_blank"  class="block py-2 px-6 text-lg font-semibold text-[#E567C7]">Lugares</a>
+                <a href="#participan" @click="open = false"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Participan</a>
+
+                <a href="/anfitriones/"
+                    @click.prevent="open = false; setTimeout(() => window.location.href = '/anfitriones/', 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Anfitriones</a>
+                <a href="/programa/"
+                    @click.prevent="open = false; setTimeout(() => window.location.href = '/programa/', 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Programa</a>
+                <a href="https://www.cicloamigable.cl/fnb" target="_blank"
+                    @click.prevent="open = false; setTimeout(() => window.open(this.href), 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#E567C7]">Lugares</a>
             </div>
         </nav>
     </header>

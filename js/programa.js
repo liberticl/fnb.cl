@@ -7,11 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadingMessage.classList.remove('hidden');
 
-    const createEventCard = (event) => {
+    const createEventCard = (event, index) => {
         if (!event.title) return '';
 
+        const cardId = `event-card-${index}`;
+        const descriptionId = `description-${index}`;
+
         return `
-            <div class="bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#4A45B0] mb-6">
+            <div id="${cardId}" class="event-card bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#4A45B0] mb-6 cursor-pointer">
                 <div class="flex flex-col md:flex-row md:items-start">
                     <div class="md:w-1/4 mb-4 md:mb-0">
                         <p class="text-sm font-bold text-[#E567C7] uppercase">${event.day}</p>
@@ -19,18 +22,34 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="md:w-3/4">
                         <h3 class="text-2xl font-bold text-[#4A45B0] mb-0">${event.title}</h3>
-                        <p class="text-xl font-semibold text-[#4CAF50] mb-3">${event.speaker}</p>
-                        <p class="text-lg whitespace-pre-wrap">${event.description}</p>
+                        <p class="text-xl font-semibold text-[#4CAF50] mb-0">${event.speaker}</p>
+                        <p class="text-xl font-semibold text-[#4CAF50AA] mb-0">${event.org}</p>
+                        <p id="${descriptionId}" class="description-content collapsed text-lg whitespace-pre-wrap">${event.description}</p>
                     </div>
                 </div>
             </div>
         `;
     };
 
+    const setupCardToggles = () => {
+        document.querySelectorAll('.event-card').forEach(card => {
+            card.addEventListener('click', (e) => {
+                e.stopPropagation();
+
+                const description = card.querySelector('.description-content');
+
+                if (description) {
+                    description.classList.toggle('collapsed');
+                }
+            });
+        });
+    };
+
+    // Parseo del CSV
     Papa.parse(CSV_URL, {
-        download: true, // Descarga la URL
-        header: true,   // Usar la primera fila como nombres de las propiedades
-        skipEmptyLines: true, // Omitir filas vacías
+        download: true,
+        header: true,
+        skipEmptyLines: true,
         complete: function (results) {
             const scheduleData = results.data;
 
@@ -48,12 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 day: item.dia,
                 time: item.hora,
                 speaker: item.expositor,
+                org: item.organizacion,
                 title: item.nombreExpo,
                 description: item.descripcion
             })).filter(item => item.day);
 
             let htmlContent = '';
             let currentDay = '';
+            let eventIndex = 0;
 
             // Generar el HTML
             dataMap.forEach(event => {
@@ -64,10 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     htmlContent += `<h2 class="text-2xl md:text-4xl font-bold text-[#4A45B0] mt-12 mb-6 text-center border-b-2 border-[#FFEA80] pb-2">${currentDay}</h2>`;
                 }
 
-                htmlContent += createEventCard(event);
+                htmlContent += createEventCard(event, eventIndex);
+                eventIndex++;
             });
 
             scheduleContainer.innerHTML = htmlContent;
+            setupCardToggles();
         },
         error: function (error) {
             console.error('Error al descargar el CSV:', error);

@@ -24,6 +24,11 @@ export const donations = [
         method: "Gestiones",
         type: "-"
     },
+    {
+        name: "Alejandra Valdovinos",
+        method: "Logo e ilustración",
+        type: "-"
+    },
 ]
 
 export const empresas = [

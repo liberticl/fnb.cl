@@ -43,7 +43,7 @@ export const organizations = [
     },
     {
         name: "Indepecleta",
-        logo: "imgs/orgas/indepecleta.jpg",
+        logo: "imgs/orgas/indepecleta.png",
         city: "Santiago",
         url: "https://indepecleta.cl/"
     },

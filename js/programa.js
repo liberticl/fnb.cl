@@ -9,14 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const createEventCard = (event, index) => {
         if (!event.title) return '';
-
+    
         const cardId = `event-card-${index}`;
         const descriptionId = `description-${index}`;
         const logoId0 = `logo-0-${index}`
         const logoId1 = `logo-1-${index}`
 
         return `
-            <div id="${cardId}" class="event-card bg-${event.type === 'cicletada' ? '[#4CAF5022]' : event.type === 'foro' ? '[#E567C722]' : event.type === 'noche' ? '[#FFEA8022]' : event.type === 'master' ? '[#6CB6FF22]' : 'white'} p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#4A45B0] mb-6">
+            <div id="${cardId}" class="event-card bg-${event.type === 'cicletada' ? '[#4CAF5022]' : event.type === 'foro' ? '[#E567C722]' : event.type === 'noche' ? '[#FFEA8022]' : event.type === 'master' ? '[#6CB6FF22]' : 'white'} p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#4A45B0] mb-6 ${event.ondate ? '' : 'hidden'}">
                 <div class="flex flex-col md:flex-row md:items-start">
                     <div class="md:w-1/4 mb-4 md:mb-0 cursor-pointer">
                         <p class="text-sm font-bold text-[#E567C7] uppercase">${event.day}</p>
@@ -74,6 +74,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const dataMap = scheduleData.map(item => {
+                const date = new Date(item.fecha);
+                const today = new Date();
                 const logostr = item.logo || '';
                 const logoarr = logostr
                     .split('|')
@@ -81,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .filter(s => s.length > 0)
 
                 return {
+                    ondate: date >= today,
                     day: item.dia,
                     time: item.hora,
                     speaker: item.expositor,
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 if (day && day !== currentDay) {
                     currentDay = day;
-                    htmlContent += `<h2 class="text-2xl md:text-4xl font-bold text-[#4A45B0] mt-12 mb-6 text-center border-b-2 border-[#FFEA80] pb-2">${currentDay}</h2>`;
+                    htmlContent += `<h2 class="text-2xl md:text-4xl font-bold text-[#4A45B0] mt-12 mb-6 text-center border-b-2 border-[#FFEA80] pb-2 ${event.ondate ? '' : 'hidden'}">${currentDay}</h2>`;
                 }
 
                 htmlContent += createEventCard(event, eventIndex);

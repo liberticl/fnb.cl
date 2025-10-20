@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diploma de Reconocimiento - FNB 2025</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos específicos para la apariencia del diploma */
+        body {
+            font-family: 'Urbanist', sans-serif;
+            background-color: #f7f7f7;
+        }
+        .diploma-container {
+            max-width: 900px;
+            min-height: 650px;
+            margin: 40px auto;
+            background-color: white;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* INICIO DE CORRECCIÓN: Reglas específicas para la impresión/PDF */
+        @media print {
+            body {
+                background: none;
+                /* Importante: Intenta forzar la impresión de fondos y colores */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .diploma-container {
+                margin: 0;
+                box-shadow: none;
+                /* ¡ELIMINADO!: border: none; para que el borde rosa se imprima */
+                width: 100%;
+                min-height: 100vh;
+            }
+        }
+        /* FIN DE CORRECCIÓN */
+
+        .color-primary { color: #4A45B0; }
+        .bg-primary { background-color: #4A45B0; }
+        .color-accent-pink { color: #E567C7; }
+        .color-accent-green { color: #4CAF50; }
+        .color-accent-yellow { color: #FFEA80; }
+        .border-accent-pink { border-color: #E567C7; }
+    </style>
+</head>
+
+<body>
+    <div class="diploma-container rounded-xl p-8 md:p-16 border-4 border-accent-pink">
+        
+        <!-- Línea Verde superior izquierda -->
+        <div class="absolute top-[0px] left-0 w-[1000px] h-8 bg-[#4CAF50] transform -translate-x-1/4 -translate-y-1/2 -rotate-[38deg] opacity-40"></div>
+        <!-- Línea Rosada inferior derecha -->
+        <div class="absolute bottom-[-50px] right-0 w-[1500px] h-8 bg-[#E567C7] transform translate-x-1/4 translate-y-1/2 rotate-12 opacity-40"></div>
+        <!-- Línea Amarilla superior derecha, más delgada -->
+        <div class="absolute top-[250px] right-[-180px] w-[600px] h-4 bg-[#FFEA80] transform -translate-y-1/2 rotate-[65deg] opacity-50"></div>
+        
+        <div class="text-center relative z-10">
+
+            <div class="mb-10 flex justify-center">
+                <img src="../imgs/foro/logo_horizontal.png" alt="Foro Nacional de la Bicicleta Logo" class="h-36 max-h-36 rounded-md">
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-extrabold color-primary mb-2 uppercase">
+                Certificado de Reconocimiento
+            </h1>
+            <p class="text-2xl font-semibold color-accent-pink mb-12">
+                Valparaíso, Chile
+            </p>
+
+            <div class="my-10">
+                <p class="text-xl text-[#212121] mb-6 font-light">Otorgado a:</p>
+                
+                <p class="text-5xl md:text-6xl font-extrabold color-primary  inline-block px-10 py-2 mb-4">
+                    FRANCISCO VERGARA
+                </p>
+
+                <p class="text-xl font-semibold text-[#212121] mt-8 leading-relaxed">
+                    Por su activa participación y compromiso en el desarrollo de la visión<br>
+                    <b>De ciudades pendientes a ciclo-amigables</b>
+                </p>
+                <p class="text-xl font-medium text-[#212121] mt-4 leading-relaxed">
+                    en el marco del Foro Nacional de la Bicicleta 2025.
+                </p>
+            </div>
+
+            <div class="mt-15 gap-8 text-[#212121] pt-6">
+                <div class="col-span-1">
+                    <img src="../imgs/orgas/andeschile ong.png" alt="Andes Chile ONG" class="h-36 max-h-36 rounded-md mx-auto">
+                    <div class="h-0.5 w-[10cm] bg-[#4A45B0] mb-2 mx-auto"></div>
+                    <p class="font-semibold text-lg">Valparaíso, 30 de octubre de 2025</p>
+                </div>
+                
+                <!-- <div class="col-span-1">
+                    <div class="h-0.5 w-full bg-[#4CAF50] mb-2"></div>
+                    <p class="font-semibold text-lg">Mesa Nacional Ciclista</p>
+                </div> 
+                
+                <div class="col-span-1">
+                    <div class="h-0.5 w-full bg-[#E567C7] mb-2"></div>
+                    <p class="font-semibold text-lg">Andes Chile ONG</p>
+                </div> -->
+            </div> 
+
+        </div>
+    </div>
+    
+    <div class="text-center mt-4">
+        <button onclick="window.print()" class="bg-[#4A45B0] text-white px-6 py-3 rounded-lg font-bold hover:bg-[#4A45B0]/90 transition-colors shadow-lg">
+            Imprimir Diploma
+        </button>
+    </div>
+</body>
+
+</html>

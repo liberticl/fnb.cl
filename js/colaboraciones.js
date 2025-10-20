@@ -68,6 +68,12 @@ export const empresas = [
         logo: "imgs/emp/casa_volante_hostal.png",
         url: "http://www.casavolantehostal.com/"
     },
+    {
+        name: "Turismo y Pedal",
+        method: "Partner de bicicletas",
+        logo: "imgs/emp/turismo_y_pedal.png",
+        url: "https://www.instagram.com/bicidelmar/"
+    },
 ]
 
 export const patrocinios = [

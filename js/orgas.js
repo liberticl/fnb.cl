@@ -55,7 +55,7 @@ export const organizations = [
     },
     {
         name: "La Quinta Pedalea",
-        logo: "imgs/orgas/laquintapedalea.jpg",
+        logo: "imgs/orgas/lqp.png",
         city: "Villa Alemana",
         url: "https://www.instagram.com/laquintapedalea/"
     },

@@ -12,18 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const cardId = `event-card-${index}`;
         const descriptionId = `description-${index}`;
+        const logoId0 = `logo-0-${index}`
+        const logoId1 = `logo-1-${index}`
 
         return `
-            <div id="${cardId}" class="event-card bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#4A45B0] mb-6 cursor-pointer">
+            <div id="${cardId}" class="event-card bg-white p-6 md:p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border-l-4 border-[#4A45B0] mb-6">
                 <div class="flex flex-col md:flex-row md:items-start">
-                    <div class="md:w-1/4 mb-4 md:mb-0">
+                    <div class="md:w-1/4 mb-4 md:mb-0 cursor-pointer">
                         <p class="text-sm font-bold text-[#E567C7] uppercase">${event.day}</p>
                         <p class="text-3xl font-extrabold text-[#212121]">${event.time}</p>
+                        <div class="w-full flex justify-left items-left space-x-4">
+                            <img id="${logoId0}" src="../imgs/programa/${event.logo[0]}.png" alt="Logo ${event.org}" class="w-40 h-24 object-contain logo-0-content collapsed ${event.logo[0] ? '' : 'hidden'}">
+                            <img id="${logoId1}" src="../imgs/programa/${event.logo[1]}.png" alt="Logo ${event.org}" class="w-40 h-24 object-contain logo-1-content collapsed ${event.logo[1] ? '' : 'hidden'}">
+                        </div>
                     </div>
                     <div class="md:w-3/4">
-                        <h3 class="text-2xl font-bold text-[#4A45B0] mb-0">${event.title}</h3>
-                        <p class="text-xl font-semibold text-[#4CAF50] mb-0">${event.speaker}</p>
-                        <p class="text-xl font-semibold text-[#4CAF50AA] mb-0">${event.org}</p>
+                        <h3 class="text-2xl font-bold text-[#4A45B0] mb-0 cursor-pointer">${event.title}</h3>
+                        <p class="text-xl font-semibold text-[#4CAF50] mb-0 cursor-pointer">${event.speaker}</p>
+                        <p class="text-xl font-semibold text-[#4CAF50AA] mb-0 cursor-pointer">${event.org}</p>
                         <p id="${descriptionId}" class="description-content collapsed text-lg whitespace-pre-wrap">${event.description}</p>
                     </div>
                 </div>
@@ -36,9 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
             card.addEventListener('click', (e) => {
                 e.stopPropagation();
 
+                const logo0 = card.querySelector('.logo-0-content');
+                const logo1 = card.querySelector('.logo-1-content');
                 const description = card.querySelector('.description-content');
 
                 if (description) {
+                    logo0.classList.toggle('collapsed');
+                    logo1.classList.toggle('collapsed');
                     description.classList.toggle('collapsed');
                 }
             });
@@ -63,14 +73,24 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            const dataMap = scheduleData.map(item => ({
-                day: item.dia,
-                time: item.hora,
-                speaker: item.expositor,
-                org: item.organizacion,
-                title: item.nombreExpo,
-                description: item.descripcion
-            })).filter(item => item.day);
+            const dataMap = scheduleData.map(item => {
+                const logostr = item.logo || '';
+                const logoarr = logostr
+                    .split('|')
+                    .map(s => s.trim())
+                    .filter(s => s.length > 0)
+
+                return {
+                    day: item.dia,
+                    time: item.hora,
+                    speaker: item.expositor,
+                    org: item.organizacion,
+                    title: item.nombreExpo,
+                    description: item.descripcion,
+                    type: item.tipo,
+                    logo: logoarr
+                }
+            }).filter(item => item.day);
 
             let htmlContent = '';
             let currentDay = '';

@@ -23,3 +23,54 @@
     padding-top: 1rem;
     padding-bottom: 0;
 }
+
+/* Custom CSS para el despliegue/ocultamiento con transición */
+.logo-0-content {
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+    overflow: hidden;
+
+    /* Estado inicial: Oculto */
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.logo-0-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.event-card .logo-0-content:not(.collapsed) {
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 1rem;
+    padding-bottom: 0;
+}
+
+.logo-1-content {
+    transition: max-height 0.5s ease-out, opacity 0.5s ease-out, padding 0.5s ease-out;
+    overflow: hidden;
+
+    /* Estado inicial: Oculto */
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.logo-1-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.event-card .logo-1-content:not(.collapsed) {
+    max-height: 1000px;
+    opacity: 1;
+    padding-top: 1rem;
+    padding-bottom: 0;
+}

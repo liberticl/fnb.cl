@@ -107,4 +107,10 @@ export const patrocinios = [
         logo: "imgs/pub/gore.png",
         url: "https://www.gobiernovalparaiso.cl/"
     },
+    {
+        name: "Comisión Nacional de Seguridad de Tránsito",
+        method: "Patrocinador",
+        logo: "imgs/pub/conaset.png",
+        url: "https://www.conaset.cl/"
+    },
 ]

@@ -74,6 +74,12 @@ export const empresas = [
         logo: "imgs/emp/turismo_y_pedal.png",
         url: "https://www.instagram.com/bicidelmar/"
     },
+    {
+        name: "Michihouse Travels",
+        method: "Turismo",
+        logo: "imgs/emp/michihousetravels.png",
+        url: "https://michihousetravels.com/"
+    },
 ]
 
 export const patrocinios = [

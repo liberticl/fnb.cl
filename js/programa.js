@@ -23,7 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 <div class="flex flex-col md:flex-row md:items-start">
                     <div class="md:w-1/4 mb-4 md:mb-0 cursor-pointer">
                         <p class="text-sm font-bold text-[#E567C7] uppercase">${event.day}</p>
-                        <p class="text-m font-bold text-[#4CAF5088]">${event.place}</p>
+                        <p class="text-m font-bold text-[#4CAF5088]">
+                        <i class="fas fa-location-dot fa-lg" style="color: #4caf5088;"></i> ${event.place}</p>
                         <p class="text-3xl font-extrabold text-[#212121]">${event.time}</p>
                         <div class="flex flex-wrap justify-left items-center w-full">
                             <div class="p-2 w-1/2 md:w-1/4 lg:w-1/5 min-w-[120px] ${event.logo[0] ? '' : 'hidden'}">

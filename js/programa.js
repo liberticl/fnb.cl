@@ -120,16 +120,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     title: item.nombreExpo,
                     description: item.descripcion,
                     type: item.tipo,
-                    logo: logoarr
+                    logo: logoarr,
+                    datetime: new Date(`${item.fecha}T${item.hora}`)
                 }
             }).filter(item => item.day);
+
+            const sortedData = dataMap.sort((a, b) => {
+                return a.datetime.getTime() - b.datetime.getTime();
+            })
 
             let htmlContent = '';
             let currentDay = '';
             let eventIndex = 0;
 
             // Generar el HTML
-            dataMap.forEach(event => {
+            sortedData.forEach(event => {
                 const day = event.day;
 
                 if (day && day !== currentDay) {

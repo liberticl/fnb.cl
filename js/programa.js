@@ -4,8 +4,107 @@ document.addEventListener('DOMContentLoaded', () => {
     const scheduleContainer = document.getElementById('schedule-container');
     const loadingMessage = document.getElementById('loading-message');
     const errorMessage = document.getElementById('error-message');
+    const btnHide = document.getElementById('btn-hide');
+    let showAllEvents = false;
 
     loadingMessage.classList.remove('hidden');
+
+    // Manejo del click del botón
+    btnHide.addEventListener('click', () => {
+        showAllEvents = !showAllEvents;
+
+        if (showAllEvents) {
+            btnHide.classList.remove('inactive');
+            btnHide.classList.add('active');
+            btnHide.textContent = 'Viendo todas las actividades';
+        } else {
+            btnHide.classList.remove('active');
+            btnHide.classList.add('inactive');
+            btnHide.textContent = 'Viendo en tiempo real';
+        }
+
+        fetchAndRenderSchedule();
+    });
+
+    const fetchAndRenderSchedule = () => {
+        // Parseo del CSV
+        Papa.parse(CSV_URL, {
+            download: true,
+            header: true,
+            skipEmptyLines: true,
+            complete: function (results) {
+                const scheduleData = results.data;
+
+                if (results.errors.length > 0) {
+                    console.error('Errores al parsear CSV:', results.errors);
+                }
+
+                if (!scheduleData || scheduleData.length === 0) {
+                    scheduleContainer.innerHTML = '<p class="text-center text-xl text-[#212121]">Aún no hay eventos programados. ¡Vuelve pronto!</p>';
+                    loadingMessage.classList.add('hidden');
+                    return;
+                }
+
+                const dataMap = scheduleData.map(item => {
+                    const date = item.hora.length < 6 ? new Date(`${item.fecha}T${item.hora}`) : new Date(`${item.fecha}T0${item.hora}`)
+                    const datePlus15 = new Date(date.getTime() + (15 * 60 * 1000));
+                    const today = new Date();
+                    const logostr = item.logo || '';
+                    const logoarr = logostr
+                        .split('|')
+                        .map(s => s.trim())
+                        .filter(s => s.length > 0)
+
+                    const ondate = showAllEvents || (datePlus15 >= today);
+
+                    return {
+                        ondate: ondate,
+                        day: item.dia,
+                        place: item.lugar,
+                        time: item.hora,
+                        speaker: item.expositor,
+                        org: item.organizacion,
+                        title: item.nombreExpo,
+                        description: item.descripcion,
+                        type: item.tipo,
+                        logo: logoarr,
+                        datetime: new Date(`${item.fecha}T${item.hora}`)
+                    }
+                }).filter(item => item.day);
+
+                const sortedData = dataMap.sort((a, b) => {
+                    return a.datetime.getTime() - b.datetime.getTime();
+                })
+
+                let htmlContent = '';
+                let currentDay = '';
+                let eventIndex = 0;
+
+                // Generar el HTML
+                sortedData.forEach(event => {
+                    const day = event.day;
+
+                    if (day && day !== currentDay) {
+                        currentDay = day;
+                        htmlContent += `<h2 id="current-day" class="text-2xl md:text-4xl font-bold text-[#4A45B0] mt-12 mb-6 text-center border-b-2 border-[#FFEA80] pb-2 ${event.ondate ? '' : 'hidden'}">${currentDay}</h2>`;
+                    }
+
+                    htmlContent += createEventCard(event, eventIndex);
+                    eventIndex++;
+                });
+
+                scheduleContainer.innerHTML = htmlContent;
+                setupCardToggles();
+                loadingMessage.classList.add('hidden');
+            },
+            error: function (error) {
+                console.error('Error al descargar el CSV:', error);
+                scheduleContainer.innerHTML = '';
+                errorMessage.classList.remove('hidden');
+                loadingMessage.classList.add('hidden'); // Ocultar mensaje de carga en caso de error
+            }
+        });
+    };
 
     const createEventCard = (event, index) => {
         if (!event.title) return '';
@@ -83,82 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Parseo del CSV
-    Papa.parse(CSV_URL, {
-        download: true,
-        header: true,
-        skipEmptyLines: true,
-        complete: function (results) {
-            const scheduleData = results.data;
+    // Inicializar la carga de eventos
+    fetchAndRenderSchedule();
 
-            if (results.errors.length > 0) {
-                console.error('Errores al parsear CSV:', results.errors);
-            }
-
-            if (!scheduleData || scheduleData.length === 0) {
-                scheduleContainer.innerHTML = '<p class="text-center text-xl text-[#212121]">Aún no hay eventos programados. ¡Vuelve pronto!</p>';
-                loadingMessage.classList.add('hidden');
-                return;
-            }
-
-            const dataMap = scheduleData.map(item => {
-                const date = item.hora.length < 6 ? new Date(`${item.fecha}T${item.hora}`) : new Date(`${item.fecha}T0${item.hora}`)
-                const datePlus15 = new Date(date.getTime() + (15 * 60 * 1000));
-                const today = new Date();
-                const logostr = item.logo || '';
-                const logoarr = logostr
-                    .split('|')
-                    .map(s => s.trim())
-                    .filter(s => s.length > 0)
-
-                return {
-                    ondate: datePlus15 >= today,
-                    day: item.dia,
-                    place: item.lugar,
-                    time: item.hora,
-                    speaker: item.expositor,
-                    org: item.organizacion,
-                    title: item.nombreExpo,
-                    description: item.descripcion,
-                    type: item.tipo,
-                    logo: logoarr,
-                    datetime: new Date(`${item.fecha}T${item.hora}`)
-                }
-            }).filter(item => item.day);
-
-            const sortedData = dataMap.sort((a, b) => {
-                return a.datetime.getTime() - b.datetime.getTime();
-            })
-
-            let htmlContent = '';
-            let currentDay = '';
-            let eventIndex = 0;
-
-            // Generar el HTML
-            sortedData.forEach(event => {
-                const day = event.day;
-
-                if (day && day !== currentDay) {
-                    currentDay = day;
-                    htmlContent += `<h2 class="text-2xl md:text-4xl font-bold text-[#4A45B0] mt-12 mb-6 text-center border-b-2 border-[#FFEA80] pb-2 ${event.ondate ? '' : 'hidden'}">${currentDay}</h2>`;
-                }
-
-                htmlContent += createEventCard(event, eventIndex);
-                eventIndex++;
-            });
-
-            scheduleContainer.innerHTML = htmlContent;
-            setupCardToggles();
-        },
-        error: function (error) {
-            console.error('Error al descargar el CSV:', error);
-            scheduleContainer.innerHTML = '';
-            errorMessage.classList.remove('hidden');
-        }
-
-    });
-
-    setTimeout(() => {
-        loadingMessage.classList.add('hidden');
-    }, 1000);
 });

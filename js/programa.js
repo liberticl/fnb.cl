@@ -102,7 +102,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const dataMap = scheduleData.map(item => {
-                const date = new Date(item.fecha);
+                const date = item.hora.length < 6 ? new Date(`${item.fecha}T${item.hora}`) : new Date(`${item.fecha}T0${item.hora}`)
+                const datePlus15 = new Date(date.getTime() + (15 * 60 * 1000));
                 const today = new Date();
                 const logostr = item.logo || '';
                 const logoarr = logostr
@@ -111,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .filter(s => s.length > 0)
 
                 return {
-                    ondate: date >= today,
+                    ondate: datePlus15 >= today,
                     day: item.dia,
                     place: item.lugar,
                     time: item.hora,

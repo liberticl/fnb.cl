@@ -44,10 +44,9 @@
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Organizaciones</a>
                 <a href="../#participan"
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Participan</a>
-                <a href="/anfitriones/"
-                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Anfitriones</a>
                 <a href="/programa/"
                     class="nav-link font-semibold text-lg inactive-nav text-[#4A45B0] border-b-2 border-[#4A45B0]">Programa</a>
+                <a href="/genero/" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Género</a>
                 <a href="https://www.cicloamigable.cl/fnb" target="_blank"
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#E567C7]">Lugares</a>
             </div>
@@ -71,13 +70,12 @@
                     class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Organizaciones</a>
                 <a href="../#participan" @click="open = false"
                     class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Participan</a>
-
-                <a href="/anfitriones/"
-                    @click.prevent="open = false; setTimeout(() => window.location.href = '/anfitriones/', 50);"
-                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Anfitriones</a>
                 <a href="/programa/"
                     @click.prevent="open = false; setTimeout(() => window.location.href = '/programa/', 50);"
                     class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Programa</a>
+                <a href="/genero/"
+                    @click.prevent="open = false; setTimeout(() => window.location.href = '/genero/', 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Género</a>
                 <a href="https://www.cicloamigable.cl/fnb" target="_blank"
                     @click.prevent="open = false; setTimeout(() => window.open(this.href), 50);"
                     class="block py-2 px-6 text-lg font-semibold text-[#E567C7]">Lugares</a>

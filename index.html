@@ -43,11 +43,11 @@
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Organizaciones</a>
                 <a href="#participan"
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Participan</a>
-                <a href="/anfitriones/"
-                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Anfitriones</a>
                 <a href="/programa/"
                     class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Programa</a>
-                <a href="https://www.cicloamigable.cl/fnb" target="_blank"  class="nav-link font-semibold text-lg inactive-nav hover:text-[#E567C7]">Lugares</a>
+                <a href="/genero/" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Género</a>
+                <a href="https://www.cicloamigable.cl/fnb" target="_blank"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#E567C7]">Lugares</a>
             </div>
             <a href="https://andeschileong.donando.cl/causa/ForoNacionaldelaBicicleta2025-4655" target="_blank"
                 class="bg-[#FFEA80] text-[#212121] px-6 py-3 rounded-lg font-bold hover:bg-[#FFD700] transition-colors md:ml-4">Donar</a>
@@ -69,13 +69,12 @@
                     class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Organizaciones</a>
                 <a href="#participan" @click="open = false"
                     class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Participan</a>
-
-                <a href="/anfitriones/"
-                    @click.prevent="open = false; setTimeout(() => window.location.href = '/anfitriones/', 50);"
-                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Anfitriones</a>
                 <a href="/programa/"
                     @click.prevent="open = false; setTimeout(() => window.location.href = '/programa/', 50);"
                     class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Programa</a>
+                <a href="/genero/"
+                    @click.prevent="open = false; setTimeout(() => window.location.href = '/genero/', 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Género</a>
                 <a href="https://www.cicloamigable.cl/fnb" target="_blank"
                     @click.prevent="open = false; setTimeout(() => window.open(this.href), 50);"
                     class="block py-2 px-6 text-lg font-semibold text-[#E567C7]">Lugares</a>
@@ -311,11 +310,13 @@
                     <p class="text-xl text-gray-700 text-balance">En el Foro Nacional de la Bicicleta recibimos apoyo
                         desde distintos mundos, entre los que contamos empresas privadas, entidades públicas y personas
                         naturales.</p>
-                    <p class="text-xl text-gray-700 text-balance py-3">El principal auspicio de este gran evento es Puerto Valparaíso</p>
+                    <p class="text-xl text-gray-700 text-balance py-3">El principal auspicio de este gran evento es
+                        Puerto Valparaíso</p>
                     <div class="w-160 text-center flex flex-col items-center justify-center">
-                    <a href="https://www.puertovalparaiso.cl/" target="_blank" class="flex flex-col items-center text-center">
-                        <img src="imgs/emp/epv.svg" alt="Logo Puerto Valparaíso" class="w-[600px] object-contain">
-                    </a>
+                        <a href="https://www.puertovalparaiso.cl/" target="_blank"
+                            class="flex flex-col items-center text-center">
+                            <img src="imgs/emp/epv.svg" alt="Logo Puerto Valparaíso" class="w-[600px] object-contain">
+                        </a>
                     </div>
                     <div class="mt-8 flex justify-center space-x-2">
                         <button id="btn-empresas-act" class="tab-btn inactive px-6 py-2 font-semibold border-2">

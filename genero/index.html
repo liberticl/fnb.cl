@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FXQJ4KHEGX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-FXQJ4KHEGX');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="FNB 2025">
+    <title>Protocolo de Equidad de Género FNB 2025</title>
+    <link rel="preload stylesheet" href="/css/main.css" as="style">
+    <link rel="preload stylesheet" href="/css/programa.css" as="style">
+    <script type="module" src="/js/main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link rel="icon" type="image/png" href="../imgs/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="text-[#212121]">
+
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center" x-data="{ open: false }">
+            <a href="/" class="font-bold text-xl text-[#4A45B0] flex items-center">
+                <img src="../imgs/foro/logo_horizontal.png" alt="Foro Nacional de la Bicicleta"
+                    class="h-20 mr-2 rounded-md">
+            </a>
+            <div class="hidden md:flex space-x-5">
+                <a href="../#vision" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Visión</a>
+                <a href="../#plan" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">El Plan</a>
+                <a href="../#equipo" class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Equipo</a>
+                <a href="../#organizaciones"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Organizaciones</a>
+                <a href="../#participan"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Participan</a>
+                <a href="/programa/"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#4A45B0]">Programa</a>
+                <a href="/genero/"
+                    class="nav-link font-semibold text-lg inactive-nav text-[#4A45B0] border-b-2 border-[#4A45B0]">Género</a>
+                <a href="https://www.cicloamigable.cl/fnb" target="_blank"
+                    class="nav-link font-semibold text-lg inactive-nav hover:text-[#E567C7]">Lugares</a>
+            </div>
+            <a href="https://andeschileong.donando.cl/causa/ForoNacionaldelaBicicleta2025-4655" target="_blank"
+                class="bg-[#FFEA80] text-[#212121] px-6 py-3 rounded-lg font-bold hover:bg-[#FFD700] transition-colors md:ml-4">Donar</a>
+
+            <button @click="open = !open" class="text-[#4A45B0] text-3xl md:hidden ml-4 focus:outline-none">
+                &#8801;
+            </button>
+
+            <div x-show="open" @click.away="open = false"
+                class="md:hidden absolute top-20 left-0 right-0 bg-white shadow-lg py-4 z-40">
+
+                <a href="../#vision" @click="open = false"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Visión</a>
+                <a href="../#plan" @click="open = false" class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">El
+                    Plan</a>
+                <a href="../#equipo" @click="open = false"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Equipo</a>
+                <a href="../#organizaciones" @click="open = false"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Organizaciones</a>
+                <a href="../#participan" @click="open = false"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Participan</a>
+                <a href="/programa/"
+                    @click.prevent="open = false; setTimeout(() => window.location.href = '/programa/', 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Programa</a>
+                <a href="/genero/"
+                    @click.prevent="open = false; setTimeout(() => window.location.href = '/genero/', 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#4A45B0]">Género</a>
+                <a href="https://www.cicloamigable.cl/fnb" target="_blank"
+                    @click.prevent="open = false; setTimeout(() => window.open(this.href), 50);"
+                    class="block py-2 px-6 text-lg font-semibold text-[#E567C7]">Lugares</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero" class="bg-[#F7F7F7] py-10 relative overflow-hidden">
+
+            <div class="absolute inset-0 z-0 opacity-20">
+                <div
+                    class="absolute top-1/2 left-1/2 w-[140vw] h-10 bg-[#FFEA80] -translate-x-1/4 -translate-y-10 rotate-45">
+                </div>
+                <div class="absolute top-1/2 left-1/1 w-[150vw] h-9 bg-[#4CAF50] -translate-x-1 -translate-y-1/10">
+                </div>
+                <div
+                    class="absolute top-1/2 left-1/4 w-[150vw] h-12 bg-[#E567C7] -translate-x-1/2 -translate-y-10 -rotate-45">
+                </div>
+            </div>
+
+            <div class="container mx-auto px-5 text-center relative z-10">
+                <h1 class="text-4xl md:text-6xl font-bold text-[#4A45B0] mb-4 text-balance">Protocolo de Equidad de Género</h1>
+                <p class="text-xl md:text-2xl text-[#212121] mb-8 text-balance">
+                    Un espacio seguro y equitativo para todas las personas.<br>
+                    Foro Nacional de la Bicicleta 2025
+                </p>
+            </div>
+        </section>
+
+        <section id="protocolo-contenido" class="bg-white py-10 md:py-15">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto mb-12">
+                    <h2 class="text-3xl md:text-5xl font-bold text-[#4A45B0] mb-4">Nuestro Compromiso: Un Foro Inclusivo</h2>
+                    <p class="text-xl text-gray-600 text-balance">Este documento establece las bases para garantizar la <b>seguridad, el respeto y la equidad</b> para todos los participantes del FNB 2025. Su lectura y entendimiento son fundamentales.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#E567C7] flex flex-col h-full">
+                        <i class="fas fa-balance-scale text-4xl text-[#E567C7] mb-3"></i>
+                        <h3 class="text-xl font-bold text-[#212121] mb-2">Principios</h3>
+                        <p class="text-gray-600 mb-3 text-base flex-grow">Fundamentos inquebrantables como <b>Tolerancia Cero</b> y <b>Confidencialidad</b>.</p>
+                        <a href="#principios-rectores" class="text-[#4A45B0] font-semibold hover:underline mt-auto">Leer más ↓</a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#4CAF50] flex flex-col h-full">
+                        <i class="fas fa-shield-alt text-4xl text-[#4CAF50] mb-3"></i>
+                        <h3 class="text-xl font-bold text-[#212121] mb-2">Prevención Activa</h3>
+                        <p class="text-gray-600 mb-3 text-base flex-grow">Acciones concretas antes y durante el evento,
+                            incluyendo la capacitación del <b>Comité de Acción Rápida (CAR)</b>.</p>
+                        <a href="#protocolo-prevencion" class="text-[#4A45B0] font-semibold hover:underline mt-auto">Leer más ↓</a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#FFEA80] flex flex-col h-full">
+                        <i class="fas fa-users text-4xl text-[#FFEA80] mb-3 text-gray-800"></i>
+                        <h3 class="text-xl font-bold text-[#212121] mb-2">Fomento a la Equidad</h3>
+                        <p class="text-gray-600 mb-3 text-base flex-grow">Promovemos activamente el <b>Lenguaje Inclusivo</b> y la paridad de género en la representación.</p>
+                        <a href="#protocolo-equidad" class="text-[#4A45B0] font-semibold hover:underline mt-auto">Leer más ↓</a>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-lg border-t-4 border-[#4A45B0] flex flex-col h-full">
+                        <i class="fas fa-bell text-4xl text-[#4A45B0] mb-3"></i>
+                        <h3 class="text-xl font-bold text-[#212121] mb-2">Acción y Denuncia (CAR)</h3>
+                        <p class="text-gray-600 mb-3 text-base flex-grow">Procedimiento <b>24/7</b> para denuncias, enfocado en la contención y la seguridad inmediata de la persona afectada.</p>
+                        <a href="#protocolo-accion" class="text-[#4A45B0] font-semibold hover:underline mt-auto">Leer más ↓</a>
+                    </div>
+                </div>
+
+                <div class="space-y-12">
+
+                    <div id="principios-rectores" class="bg-[#F7F7F7] p-8 rounded-xl shadow-inner border-l-8 border-[#E567C7]">
+                        <h3 class="text-2xl font-bold text-[#E567C7] mb-3 flex items-center"><i class="fas fa-gavel mr-3"></i>I. Principios Rectores</h3>
+                        <p class="text-lg mb-4 text-gray-700">Son las bases innegociables para participar en el Foro:</p>
+                        <ul class="grid md:grid-cols-2 gap-4 text-lg">
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#E567C7]/50"><strong>Tolerancia Cero:</strong> Cero acoso, violencia o discriminación.</li>
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#E567C7]/50"><strong>Confidencialidad:</strong> Máxima discreción en el manejo de denuncias.</li>
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#E567C7]/50"><strong>No Revictimización:</strong> Prioridad en el bienestar y contención de la persona afectada.</li>
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#E567C7]/50"><strong>Disponibilidad 24/7:</strong> El Comité de Acción Rápida siempre está disponible.</li>
+                        </ul>
+                    </div>
+
+                    <div id="protocolo-prevencion" class="bg-[#F7F7F7] p-8 rounded-xl shadow-inner border-l-8 border-[#4CAF50]">
+                        <h3 class="text-2xl font-bold text-[#4CAF50] mb-3 flex items-center"><i class="fas fa-eye mr-3"></i>II. Protocolo de Prevención</h3>
+                        <p class="text-lg mb-4 text-gray-700">Acciones proactivas para crear un ambiente seguro:</p>
+                        <ul class="list-disc ml-5 text-lg space-y-2">
+                            <li>Mensajes de <b>Tolerancia Cero</b> visibles en pantallas principales.</li>
+                            <li>Designación de un <b>Punto Seguro Visible</b> en el recinto.</li>
+                            <li>Capacitación específica al <b>Comité de Acción Rápida (CAR)</b>.</li>
+                            <li>Información clara del protocolo enviada con la inscripción.</li>
+                        </ul>
+                    </div>
+
+                    <div id="protocolo-equidad" class="bg-[#F7F7F7] p-8 rounded-xl shadow-inner border-l-8 border-[#FFEA80]">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-3 flex items-center"><i class="fas fa-hands-helping mr-3"></i>III. Protocolo de Equidad</h3>
+                        <p class="text-lg mb-4 text-gray-700">Medidas para asegurar la paridad y el trato justo:</p>
+                        <ul class="grid md:grid-cols-2 gap-4 text-lg">
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#FFEA80]/50"><strong>Lenguaje No Sexista:</strong> Uso obligatorio en toda comunicación oficial.</li>
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#FFEA80]/50"><strong>Paridad:</strong> Búsqueda de representación equitativa en todos los espacios.</li>
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#FFEA80]/50"><strong>Infraestructura:</strong> Disponibilidad de baños neutrales y accesibles.</li>
+                            <li class="p-3 bg-white rounded-lg shadow-sm border-l-4 border-[#FFEA80]/50"><strong>Visibilización:</strong> Destacar la contribución de mujeres y disidencias en la movilidad.</li>
+                        </ul>
+                    </div>
+
+                    <div id="protocolo-accion" class="bg-[#F7F7F7] p-8 rounded-xl shadow-inner border-l-8 border-[#4A45B0]">
+                        <h3 class="text-2xl font-bold text-[#4A45B0] mb-3 flex items-center"><i class="fas fa-exclamation-triangle mr-3"></i>IV. Protocolo de Acción y Denuncia</h3>
+                        <p class="text-lg mb-4 text-gray-700">En caso de una situación de acoso o violencia:</p>
+                        <div class="bg-white p-5 rounded-lg border-2 border-red-400">
+                            <p class="font-bold text-red-700 mb-2">Canales Inmediatos (24/7):</p>
+                            <p class="text-lg">Acudir al Punto Seguro o contactar al <strong class="text-[#4A45B0]"><a href="https://wa.me/56991981271?text=Necesito%20ayuda!" target="_blank">WhatsApp</a></strong> Exclusivo del CAR</b>.</p>
+                        </div>
+                        <p class="mt-4 text-base text-gray-700">El CAR evaluará el riesgo, aplicará medidas cautelares inmediatas (incluyendo la restricción de acceso al evento) y ofrecerá contención y acompañamiento a la persona denunciante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#212121] text-white">
+        <div class="container mx-auto px-6 py-10 text-center">
+            <h3 class="text-2xl font-bold mb-4">Contáctenos</h3>
+            <p class="mb-2 text-xt">Estamos listos para conversar sobre cómo podemos colaborar.</p>
+            <p class="font-semibold text-[#E567C7] mb-6"><a href="mailto:coordinacion@fnb.cl">coordinacion@fnb.cl</a>
+            </p>
+            <div class="flex justify-center space-x-8 items-center">
+                <p class="font-bold flex items-center">Organizan:</p>
+                <span><a href="https://andeschileong.cl">Andes Chile ONG</a></span>
+                <span><a href="https://mesanacionalciclista.cl">Mesa Nacional Ciclista</a></span>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
